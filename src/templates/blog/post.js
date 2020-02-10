@@ -1,4 +1,6 @@
 import React from 'react';
+import Layout from "../../components/layout/layout"
+import SEO from "../../components/seo"
 
 // import Link from 'gatsby-link'
 // import get from 'lodash/get'
@@ -10,9 +12,12 @@ const PostTemplate = ({ data }) => {
     // const content = data.contentfulPage;
 
     return (
+      <Layout>
+        <SEO title="Product Page" />
         <h1>
             Post Page
         </h1>
+      </Layout>
     );
 }
 

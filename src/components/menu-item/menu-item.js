@@ -3,14 +3,8 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const MenuItem = ({ title, slug }) => (
-    <li>
-      <Link
-          to={`${slug}/`}
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+  <li>
+    <Link to={`/${slug}/`} >
       {title}
     </Link>
   </li>
@@ -19,10 +13,6 @@ const MenuItem = ({ title, slug }) => (
 MenuItem.propTypes = {
   title: PropTypes.string,
   slug: PropTypes.string
-}
-
-MenuItem.defaultProps = {
-  // siteTitle: ``,
 }
 
 export default MenuItem

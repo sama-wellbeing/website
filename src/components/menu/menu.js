@@ -5,12 +5,12 @@ import MenuItem from "../menu-item/menu-item"
 function RenderMenu(props) {
   const {menuItems} = props;
 
-  const listItems = menuItems.map((item) =>
-    <MenuItem slug={item.slug} title={item.title}/>
+  const listItems = menuItems.map((item, key) =>
+    <MenuItem key={key} slug={item.slug} title={item.title}/>
   );
 
   return (
-    <ul>{listItems}</ul>
+    <>{listItems}</>
   );
 }
 
@@ -21,7 +21,7 @@ const Menu = ({ menuItems, classNames }) => (
 )
 
 Menu.propTypes = {
-  menuItems: PropTypes.object
+  menuItems: PropTypes.array
 }
 
 export default Menu

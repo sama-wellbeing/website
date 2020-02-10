@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Lo-en Website Repository
+Website Repository
 </h1>
 
 <h3 align="center">
@@ -18,7 +18,7 @@
 
 1.  **Start developing.**
 
-    Navigate into your new `/lo-en/` and start it up.
+    Navigate into `/lo-en/` and start it up.
 
     ```shell
     gatsby develop

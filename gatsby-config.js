@@ -14,6 +14,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-inline-svg`,
     `gatsby-plugin-sass`,
     "gatsby-plugin-sitemap",
     `gatsby-transformer-sharp`,

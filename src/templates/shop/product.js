@@ -1,18 +1,18 @@
 import React from 'react';
-
-// import Link from 'gatsby-link'
-// import get from 'lodash/get'
-// import Helmet from 'react-helmet'
-// import styles from '../pages.js/blog.js.module.css'
+import Layout from "../../components/layout/layout"
+import SEO from "../../components/seo"
 
 const ProductTemplate = ({ data }) => {
     console.log(data);
     // const content = data.contentfulPage;
 
     return (
-        <h1>
-            Product Page
-        </h1>
+      <Layout>
+        <SEO title="Product Page" />
+          <h1>
+              Product Page
+          </h1>
+      </Layout>
     );
 }
 

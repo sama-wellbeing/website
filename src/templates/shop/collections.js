@@ -1,32 +1,48 @@
 import React from 'react'
 import Layout from "../../components/layout/layout"
 import SEO from "../../components/seo"
+import { Link } from "gatsby"
 
-// import Link from 'gatsby-link'
-// import get from 'lodash/get'
-// import Helmet from 'react-helmet'
-// import styles from '../pages.js/blog.js.module.css'
+function RenderCollections(props) {
+  const { collections, slug } = props;
+
+  const collectionItems = collections.map((item, key) =>
+    <li key={key}>
+      <Link to={`/${slug}/${item.slug}/`} >
+        {item.title}
+      </Link>
+    </li>
+  );
+
+  return (
+    <ul>{collectionItems}</ul>
+  );
+}
+
 
 const CollectionsTemplate = ({ data }) => {
-    console.log(data);
-    // const content = data.contentfulPage;
+    const content = data.contentfulProductCollections;
 
     return (
       <Layout>
         <SEO title="Product Page" />
-          <h1>
-              Collections Page
-          </h1>
+          <h1>{content.title}</h1>
+          <RenderCollections collections={content.collections} slug={content.slug} />
       </Layout>
     );
 }
 
 export default CollectionsTemplate;
 
-// export const pageQuery = graphql`
-//     query PageQuery($id: String!) {
-//       contentfulPage(id: {eq: $id}) {
-//         title
-//       }
-//     }
-// `
+export const pageQuery = graphql`
+    query CollectionsQuery($id: String!) {
+      contentfulProductCollections(id: {eq: $id}) {
+        slug
+        title
+        collections {
+          slug
+          title
+        }
+      }
+    }
+`

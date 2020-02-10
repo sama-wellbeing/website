@@ -3,14 +3,13 @@ import Layout from "../../components/layout/layout"
 import SEO from "../../components/seo"
 
 const ProductTemplate = ({ data }) => {
-    console.log(data);
-    // const content = data.contentfulPage;
+    const content = data.contentfulProduct;
 
     return (
       <Layout>
         <SEO title="Product Page" />
           <h1>
-              Product Page
+            {content.title}
           </h1>
       </Layout>
     );
@@ -18,10 +17,22 @@ const ProductTemplate = ({ data }) => {
 
 export default ProductTemplate;
 
-// export const pageQuery = graphql`
-//     query PageQuery($id: String!) {
-//       contentfulPage(id: {eq: $id}) {
-//         title
-//       }
-//     }
-// `
+export const pageQuery = graphql`
+    query ProductQuery($id: String!) {
+      contentfulProduct(id: {eq: $id}) {
+        title
+        shopifyContent {
+          title
+          variants {
+            edges {
+              node {
+                availableForSale
+                price
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+`

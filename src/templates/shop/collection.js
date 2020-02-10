@@ -1,32 +1,56 @@
 import React from 'react';
 import Layout from "../../components/layout/layout"
 import SEO from "../../components/seo"
+import { Link } from "gatsby"
 
-// import Link from 'gatsby-link'
-// import get from 'lodash/get'
-// import Helmet from 'react-helmet'
-// import styles from '../pages.js/blog.js.module.css'
+function RenderProducts(props) {
+    const { products, path } = props;
+
+    const listItems = products.map((item, key) =>
+      <li key={key}>
+          <Link to={`${path}/${item.slug}/`} >
+              {item.title}
+          </Link>
+      </li>
+    );
+
+    return (
+      <ul>{listItems}</ul>
+    );
+}
 
 const CollectionTemplate = ({ data }) => {
-    console.log(data);
-    // const content = data.contentfulPage;
+    const content = data.contentfulProductCollection;
+    const products = content.products;
+    const path = `/${data.contentfulProductCollections.slug}/${content.slug}`;
 
     return (
       <Layout>
-        <SEO title="Product Page" />
+        <SEO title={content.title} />
         <h1>
-            Collection Page
+            {content.title}
         </h1>
+        {products &&
+            <RenderProducts path={path} products={products}/>
+        }
       </Layout>
     );
 }
 
 export default CollectionTemplate;
 
-// export const pageQuery = graphql`
-//     query PageQuery($id: String!) {
-//       contentfulPage(id: {eq: $id}) {
-//         title
-//       }
-//     }
-// `
+export const pageQuery = graphql`
+    query ProductsQuery($id: String!) {
+      contentfulProductCollection(id: {eq: $id}) {
+        title
+        slug
+        products {
+            title
+            slug
+        }
+      }
+      contentfulProductCollections {
+        slug
+      }
+    }
+`

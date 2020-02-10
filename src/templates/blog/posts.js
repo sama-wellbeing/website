@@ -1,32 +1,49 @@
 import React from 'react';
 import Layout from "../../components/layout/layout"
 import SEO from "../../components/seo"
+import { graphql, Link } from "gatsby"
 
-// import Link from 'gatsby-link'
-// import get from 'lodash/get'
-// import Helmet from 'react-helmet'
-// import styles from '../pages.js/blog.js.module.css'
+function RenderPosts(props) {
+    const { posts, slug } = props;
+
+    const listItems = posts.map((item, key) =>
+        <li key={key}>
+            <Link to={`/${slug}/${item.slug}/`} >
+                {item.title}
+            </Link>
+        </li>
+    );
+
+    return (
+      <ul>{listItems}</ul>
+    );
+}
 
 const PostsTemplate = ({ data }) => {
-    console.log(data);
-    // const content = data.contentfulPage;
+    const content = data.contentfulPosts;
 
     return (
       <Layout>
         <SEO title="Product Page" />
         <h1>
-            Posts Template
+            {content.title}
         </h1>
+        <RenderPosts slug={content.slug} posts={content.posts}/>
       </Layout>
     );
 }
 
 export default PostsTemplate;
 
-// export const pageQuery = graphql`
-//     query PageQuery($id: String!) {
-//       contentfulPage(id: {eq: $id}) {
-//         title
-//       }
-//     }
-// `
+export const pageQuery = graphql`
+    query PostsQuery($id: String!) {
+      contentfulPosts(id: {eq: $id}) {
+        title
+        slug
+        posts {
+            title
+            slug
+        }
+      }
+    }
+`

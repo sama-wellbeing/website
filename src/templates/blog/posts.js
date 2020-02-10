@@ -7,11 +7,11 @@ import React from 'react';
 
 const PostsTemplate = ({ data }) => {
     console.log(data);
-    const content = data.contentfulPage;
+    // const content = data.contentfulPage;
 
     return (
         <h1>
-            {content.title}
+            Posts Template
         </h1>
     );
 }

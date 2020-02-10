@@ -7,11 +7,11 @@ import React from 'react';
 
 const CollectionsTemplate = ({ data }) => {
     console.log(data);
-    const content = data.contentfulPage;
+    // const content = data.contentfulPage;
 
     return (
         <h1>
-            {content.title}
+            Collections Page
         </h1>
     );
 }

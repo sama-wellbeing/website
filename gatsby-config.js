@@ -3,6 +3,7 @@ module.exports = {
     title: `Lo-en`,
     description: `Sensory Awareness - bath and body products`,
     author: `@willpaige`,
+    siteUrl: `https://lo-en.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

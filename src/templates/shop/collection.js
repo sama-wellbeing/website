@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from "../../components/layout/layout"
+import Page from "../../components/page/page"
 import SEO from "../../components/seo"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 function RenderProducts(props) {
     const { products, path } = props;
@@ -25,7 +25,7 @@ const CollectionTemplate = ({ data }) => {
     const path = `/${data.contentfulProductCollections.slug}/${content.slug}`;
 
     return (
-      <Layout>
+      <Page>
         <SEO title={content.title} />
         <h1>
             {content.title}
@@ -33,7 +33,7 @@ const CollectionTemplate = ({ data }) => {
         {products &&
             <RenderProducts path={path} products={products}/>
         }
-      </Layout>
+      </Page>
     );
 }
 

@@ -1,15 +1,16 @@
 import React from 'react';
-import Layout from "../../components/layout/layout"
+import Page from "../../components/page/page"
 import SEO from "../../components/seo"
+import { graphql } from "gatsby"
 
 const PostTemplate = ({ data }) => {
     const content = data.contentfulPost;
 
     return (
-      <Layout>
+      <Page>
         <SEO title={content.title} />
         <h1>{content.title}</h1>
-      </Layout>
+      </Page>
     );
 }
 

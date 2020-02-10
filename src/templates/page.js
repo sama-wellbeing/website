@@ -1,17 +1,18 @@
 import React from 'react';
-import Layout from "../components/layout/layout"
+import Page from "../components/page/page"
 import SEO from "../components/seo"
+import { graphql } from "gatsby"
 
 const PageTemplate = ({ data }) => {
     const content = data.contentfulPage;
 
     return (
-      <Layout>
+      <Page>
         <SEO title="Product Page" />
         <h1>
             {content.title}
         </h1>
-      </Layout>
+      </Page>
     );
 }
 

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Menu from "../menu/menu"
 import Brand from "../brand/brand"
+import Wrapper from "../wrapper/wrapper"
 
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(
@@ -36,8 +37,10 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header>
-      <Brand />
-      <Menu menuItems={menuItems} />
+      <Wrapper>
+        <Brand />
+        <Menu menuItems={menuItems} />
+      </Wrapper>
     </header>
   )
 }

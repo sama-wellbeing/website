@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from "../../components/layout/layout"
+import Page from "../../components/page/page"
 import SEO from "../../components/seo"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 function RenderCollections(props) {
   const { collections, slug } = props;
@@ -24,11 +24,11 @@ const CollectionsTemplate = ({ data }) => {
     const content = data.contentfulProductCollections;
 
     return (
-      <Layout>
+      <Page>
         <SEO title="Product Page" />
           <h1>{content.title}</h1>
           <RenderCollections collections={content.collections} slug={content.slug} />
-      </Layout>
+      </Page>
     );
 }
 

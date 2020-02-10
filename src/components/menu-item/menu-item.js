@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 const MenuItem = ({ title, slug }) => (
     <li>
       <Link
-          to={slug}
+          to={`${slug}/`}
           style={{
             color: `white`,
             textDecoration: `none`,

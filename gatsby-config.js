@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Lo-en`,
-    description: `Sensory Awareness - bath and body products`,
+    description: `Sensory Awareness - wellness bath and body products`,
     author: `@willpaige`,
     siteUrl: `https://lo-en.com`
   },

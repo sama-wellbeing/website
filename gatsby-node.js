@@ -1,10 +1,10 @@
-import { buildShop } from "./lib/shop"
-import { buildBlog } from "./lib/blog"
-import { buildPages } from "./lib/pages"
-import GatsbyNodeQuery from "./lib/queries"
-
 const Promise = require('bluebird');
-const path = require(`path`);
+const path = require('path');
+
+const { buildPages } = require(path.resolve(__dirname, "lib/pages"));
+const { buildShop } = require(path.resolve(__dirname, "lib/shop"));
+const { buildBlog } = require(path.resolve(__dirname, "lib/blog"));
+const { GatsbyNodeQuery } = require(path.resolve(__dirname, "lib/queries"));
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -25,8 +25,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
-
-
     resolve(
       graphql(GatsbyNodeQuery).then(result => {
         if (result.errors) {

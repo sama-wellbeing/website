@@ -38,8 +38,8 @@ const Header = ({ siteTitle }) => {
   return (
     <header>
       <Wrapper>
-        <Brand />
         <Menu menuItems={menuItems} />
+        <Brand />
       </Wrapper>
     </header>
   )

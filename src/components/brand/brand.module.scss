@@ -1,6 +1,7 @@
 .brand {
-  max-width: 400px;
+  max-width: 200px;
   display: block;
+  margin: 0 auto;
 }
 
 .brandInner {
@@ -8,5 +9,9 @@
 
   svg {
     width: 100%;
+  }
+
+  path {
+    fill: #fff;
   }
 }

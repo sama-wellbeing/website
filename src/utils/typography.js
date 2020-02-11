@@ -4,14 +4,14 @@ const typography = new Typography({
     baseFontSize: "16px",
     baseLineHeight: 1.8,
     scaleRatio: 2.6,
-    bodyGray: 28,
+    bodyGray: 10,
     headerFontFamily: [
-        "Lato",
+        "Roboto",
         "Helvetica Neue",
         "sans-serif",
     ],
     bodyFontFamily: [
-        "Lato",
+        "Open Sans",
         "Helvetica Neue",
         "sans-serif"
     ],

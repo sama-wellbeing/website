@@ -6,7 +6,7 @@ const typography = new Typography({
     scaleRatio: 2.6,
     bodyGray: 10,
     headerFontFamily: [
-        "Roboto",
+        "Montserrat",
         "Helvetica Neue",
         "sans-serif",
     ],

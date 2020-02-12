@@ -6,27 +6,18 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../header/header"
 import Wrapper from "../wrapper/wrapper"
 
 import "./page.scss"
 
-const Page = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Page = (props) => {
+  const {children, headerBackgroundFill} = props;
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header backgroundFill={headerBackgroundFill} />
       <Wrapper>
         <main>{children}</main>
         <footer>
@@ -39,6 +30,7 @@ const Page = ({ children }) => {
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  headerBackgroundFill: PropTypes.string
 }
 
 export default Page

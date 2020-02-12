@@ -1,11 +1,15 @@
 import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from "prop-types"
+import React from "react"
+import classnames from 'classnames'
+
 import Menu from "../menu/menu"
 import Brand from "../brand/brand"
 import Wrapper from "../wrapper/wrapper"
 
-const Header = ({ siteTitle }) => {
+import styles from "./header.module.scss"
+
+const Header = ({ backgroundFill }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -29,28 +33,36 @@ const Header = ({ siteTitle }) => {
             }
           }
         }
+        contentfulSettings {
+          strapline
+        }
       }
     `
   );
+  const headerClass = classnames(styles.header, styles.headerBackground, {
+    [styles[backgroundFill]] : backgroundFill
+  });
 
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
+  const strapLine = data.contentfulSettings.strapline;
 
   return (
-    <header>
+    <header className={headerClass}>
       <Wrapper>
         <Menu menuItems={menuItems} />
         <Brand />
+        <h4 className={styles.strapline}>{strapLine}</h4>
       </Wrapper>
     </header>
   )
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  backgroundFill: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  backgroundFill: 'backgroundWrap'
 }
 
 export default Header

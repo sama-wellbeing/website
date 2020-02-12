@@ -1,0 +1,68 @@
+@import "../../scss/variables";
+
+.header {
+  position: relative;
+  padding: 0.8rem 0 $headerMargin 0;
+}
+
+.headerBackground {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(-45deg, $green, $lightBlue, $blue, $lilac);
+    background-size: 800% 800%;
+    animation: gradient 10s ease-in-out infinite;
+  }
+}
+
+.backgroundWrap {
+  &:before {
+    bottom: 0;
+  }
+}
+
+.background50 {
+  &:before {
+    height: 50vh;
+  }
+}
+
+.background75 {
+  &:before {
+    height: 75vh;
+  }
+}
+
+.background100 {
+  &:before {
+    height: 100vh;
+  }
+}
+
+.strapline {
+  font-family: 'Open Sans', serif;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

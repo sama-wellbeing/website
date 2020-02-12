@@ -44,7 +44,7 @@ module.exports = {
             ]
           },
           {
-            family: `Roboto`,
+            family: `Montserrat`,
             variants: [
               `400`, `700`
             ]

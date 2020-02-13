@@ -18,7 +18,7 @@ const IndexPage = () => {
                 subtitle
                 image {
                   fluid(maxWidth: 1280) {
-                    ...GatsbyContentfulFluid
+                    ...GatsbyContentfulFluid_withWebp
                   }
                 }
               }

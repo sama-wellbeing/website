@@ -1,0 +1,41 @@
+
+.hero {
+  display: flex;
+}
+
+.image {
+  flex: 1.2;
+}
+
+.content {
+  padding: 80px 0 0 60px;
+  flex: 1;
+}
+
+.title {
+  font-family: 'Lora', Georgia, sans-serif;
+  font-size: 60px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  font-weight: normal;
+  color: #fff;
+}
+
+.subtitle {
+  font-family: "Open Sans", Helvetica, serif;
+  position: relative;
+  padding-top: 80px;
+  //text-transform: uppercase;
+  color: #fff;
+  font-size: 28px;
+
+  &:before {
+    content: '';
+    width: 2px;
+    height: 80px;
+    background-color: #fff;
+    position: absolute;
+    left: 20%;
+    top: -14px;
+  }
+}

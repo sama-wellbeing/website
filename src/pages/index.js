@@ -6,18 +6,28 @@ import SEO from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
 import Hero from "../components/hero/hero"
 const IndexPage = () => {
-  const data = useStaticQuery(
+  let data = useStaticQuery(
     graphql`
       query {
-        allContentfulHomePage {
+        allContentfulHomePage(filter: {id: {eq: "2d016566-5546-5b12-80b1-d15a60ca62a7"}}) {
           edges {
             node {
               id
+              seoMetaData {
+                title
+                metaDescription {
+                  content {
+                    content {
+                      value
+                    }
+                  }
+                }
+              }
               hero {
                 title
                 subtitle
                 image {
-                  fluid(maxWidth: 1280) {
+                  fluid(maxWidth: 700) {
                     ...GatsbyContentfulFluid_withWebp
                   }
                 }
@@ -28,14 +38,15 @@ const IndexPage = () => {
       }
     `
   );
-  const hero = data.allContentfulHomePage.edges[0].node.hero;
+  data = data.allContentfulHomePage.edges[0].node;
 
+  const hero = data.hero;
+  const seo = data.seoMetaData;
   return (
     <App headerBackgroundFill={'background75'}>
-      <SEO title="Home" />
-      <Hero image={hero.image} title={hero.title} subTitle={hero.subtitle} cta={hero.cta} />
+      <SEO title={seo.title} description={seo.metaDescription.content[0].content[0].value} />
+      <Hero image={hero.image} title={hero.title} subtitle={hero.subtitle} cta={hero.cta} />
 
-      <h1>Home Page</h1>
       {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
         {/*<Image />*/}
       {/*</div>*/}

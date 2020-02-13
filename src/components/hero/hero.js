@@ -1,18 +1,23 @@
 import React from "react"
 import Image from "../image/image"
 import * as PropTypes from "prop-types"
+import styles from './hero.module.scss'
 
 const Hero = (props) => {
   const {image, title, subtitle} = props;
 
   return (
-   <div className={'hero'}>
-     <Image fluid={image.fluid} />
-     <h2>{title}</h2>
+   <div className={styles.hero}>
+     <div className={styles.image}>
+      <Image fluid={image.fluid} />
+     </div>
+     <div className={styles.content}>
+       <h2 className={styles.title}>{title}</h2>
 
-     {subtitle &&
-      <p>{subtitle}</p>
-     }
+       {subtitle &&
+        <p className={styles.subtitle}>{subtitle}</p>
+       }
+     </div>
     </div>
   )
 }
@@ -22,6 +27,6 @@ export default Hero
 Hero.propTypes = {
   image: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string,
+  subtitle: PropTypes.string,
   cta: PropTypes.object
 }

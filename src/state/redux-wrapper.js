@@ -2,8 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import { Provider } from 'react-redux';
 import { createStore as reduxCreateStore } from 'redux';
-import rootReducer from '.';
 import { initialUiState } from "./ui/ui-reducer";
+import { rootReducer } from "./index"
 
 export const mockInitialState = {
   ui: initialUiState,

@@ -20,11 +20,29 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1200,
+              backgroundColor: 'black'
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `lsj91yqkflox`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: `J0Rv_qrgoapP_MeUfY8te4NFc2Kk2M815NMlYYstPoE`,
+        downloadLocal: true,
       },
     },
     {

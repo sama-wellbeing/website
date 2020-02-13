@@ -1,18 +1,18 @@
 /**
- * Page component that queries for data
+ * App component that queries for data
  * with Gatsby's useStaticQuery component
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 import React from "react"
-import PropTypes from "prop-types"
+import * as PropTypes from "prop-types"
 
 import Header from "../header/header"
 import Wrapper from "../wrapper/wrapper"
 
-import "./page.scss"
+import "./app.scss"
 
-const Page = (props) => {
+const App = (props) => {
   const {children, headerBackgroundFill} = props;
 
   return (
@@ -28,9 +28,9 @@ const Page = (props) => {
   )
 }
 
-Page.propTypes = {
+App.propTypes = {
   children: PropTypes.node.isRequired,
-  headerBackgroundFill: PropTypes.string
+  headerBackgroundFill: PropTypes.string,
 }
 
-export default Page
+export default App

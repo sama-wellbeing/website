@@ -1,6 +1,6 @@
 import React from "react"
 
-import Page from "../components/page/page"
+import App from "../components/app/app"
 // import Image from "../components/image/image"
 import SEO from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
@@ -9,23 +9,18 @@ const IndexPage = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        contentfulHomePage {
-          seoMetaData {
-            title
-            metaDescription {
-              content {
-                content {
-                  value
+        allContentfulHomePage {
+          edges {
+            node {
+              id
+              hero {
+                title
+                subtitle
+                image {
+                  fluid(maxWidth: 1280) {
+                    ...GatsbyContentfulFluid
+                  }
                 }
-              }
-            }
-          }
-          hero {
-            title
-            subtitle
-            image {
-              file {
-                url
               }
             }
           }
@@ -33,18 +28,18 @@ const IndexPage = () => {
       }
     `
   );
-  const hero = data.contentfulHomePage.hero;
+  const hero = data.allContentfulHomePage.edges[0].node.hero;
 
   return (
-    <Page headerBackgroundFill={'background75'}>
+    <App headerBackgroundFill={'background75'}>
       <SEO title="Home" />
-      <Hero imageSrc={hero.image.file.url} title={hero.title} subTitle={hero.subtitle} cta={hero.cta} />
+      <Hero image={hero.image} title={hero.title} subTitle={hero.subtitle} cta={hero.cta} />
 
       <h1>Home Page</h1>
       {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
         {/*<Image />*/}
       {/*</div>*/}
-    </Page>
+    </App>
   )
 }
 

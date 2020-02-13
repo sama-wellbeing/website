@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from "../../components/page/page"
+import App from "../../components/app/app"
 import SEO from "../../components/seo"
 import { graphql } from "gatsby"
 
@@ -7,12 +7,12 @@ const ProductTemplate = ({ data }) => {
     const content = data.contentfulProduct;
 
     return (
-      <Page>
+      <App>
         <SEO title="Product Page" />
           <h1>
             {content.title}
           </h1>
-      </Page>
+      </App>
     );
 }
 

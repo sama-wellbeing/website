@@ -1,0 +1,11 @@
+@import '../../scss/variables';
+
+.button {
+  padding: 15px 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  display: inline-block;
+  background-color: $blue;
+  color: #fff;
+}

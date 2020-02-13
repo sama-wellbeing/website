@@ -31,6 +31,12 @@ const IndexPage = () => {
                     ...GatsbyContentfulFluid_withWebp
                   }
                 }
+                cta {
+                  internalUrl {
+                    slug
+                  }
+                  text
+                }
               }
             }
           }
@@ -42,6 +48,7 @@ const IndexPage = () => {
 
   const hero = data.hero;
   const seo = data.seoMetaData;
+
   return (
     <App headerBackgroundFill={'background75'}>
       <SEO title={seo.title} description={seo.metaDescription.content[0].content[0].value} />

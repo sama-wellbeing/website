@@ -2,7 +2,6 @@ const Promise = require('bluebird');
 const path = require('path');
 
 const { buildPages } = require(path.resolve(__dirname, "lib/pages"));
-const { buildShop } = require(path.resolve(__dirname, "lib/shop"));
 const { buildBlog } = require(path.resolve(__dirname, "lib/blog"));
 const { GatsbyNodeQuery } = require(path.resolve(__dirname, "lib/queries"));
 
@@ -33,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         buildPages(createPage, result.data);
-        buildShop(createPage, result.data);
+        // buildShop(createPage, result.data);
         buildBlog(createPage, result.data);
       })
     )

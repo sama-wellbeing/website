@@ -26,10 +26,6 @@ const Header = ({ backgroundFill }) => {
                 slug
                 title
               }
-              ... on ContentfulProductCollections {
-                slug
-                title
-              }
             }
           }
         }

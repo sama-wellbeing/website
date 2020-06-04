@@ -8,24 +8,26 @@ const Hero = (props) => {
   const {image, title, subtitle, cta} = props;
 
   return (
-   <div className={styles.hero}>
-     <div className={styles.image}>
-      <Image fluid={image.fluid} />
-     </div>
-     <div className={styles.contentContainer}>
-       <div className={styles.content}>
-         <h2 className={styles.title}>{title}</h2>
+    <div className={styles.hero}>
+      <div className={styles.image}>
+        <Image fluid={image.fluid} />
+      </div>
+      <div className={styles.contentContainer}>
+        <div className={styles.content}>
+          <h2 className={styles.title}>{title}</h2>
 
-         {subtitle &&
-          <p className={styles.subtitle}>{subtitle}</p>
-         }
-       </div>
-       {cta &&
-         <div className={styles.cta}>
-          <Button url={`/${cta.internalUrl.slug}/`} internal={true} text={cta.text}/>
-         </div>
-       }
-     </div>
+          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          {cta && (
+            <div className={styles.cta}>
+              <Button
+                url={`/${cta.internalUrl.slug}/`}
+                internal={true}
+                text={cta.text}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   )
 }

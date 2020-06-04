@@ -8,7 +8,6 @@ import React from "react"
 import * as PropTypes from "prop-types"
 
 import Header from "../header/header"
-import Wrapper from "../wrapper/wrapper"
 
 import "./app.scss"
 
@@ -18,12 +17,10 @@ const App = (props) => {
   return (
     <>
       <Header backgroundFill={headerBackgroundFill} />
-      <Wrapper>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}
-        </footer>
-      </Wrapper>
+      <main>{children}</main>
+      <footer>
+        © {new Date().getFullYear()}
+      </footer>
     </>
   )
 }

@@ -29,9 +29,6 @@ const Header = ({ backgroundFill }) => {
             }
           }
         }
-        contentfulSettings {
-          strapline
-        }
       }
     `
   );
@@ -40,14 +37,12 @@ const Header = ({ backgroundFill }) => {
   });
 
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
-  const strapLine = data.contentfulSettings.strapline;
 
   return (
     <header className={headerClass}>
       <Wrapper>
         <Menu menuItems={menuItems} />
         <Brand />
-        <h4 className={styles.strapline}>{strapLine}</h4>
       </Wrapper>
     </header>
   )

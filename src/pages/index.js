@@ -5,6 +5,8 @@ import App from "../components/app/app"
 import SEO from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
 import Hero from "../components/hero/hero"
+import Wrapper from "../components/wrapper/wrapper"
+
 const IndexPage = () => {
   let data = useStaticQuery(
     graphql`
@@ -27,7 +29,7 @@ const IndexPage = () => {
                 title
                 subtitle
                 image {
-                  fluid(maxWidth: 700) {
+                  fluid(maxWidth: 1440) {
                     ...GatsbyContentfulFluid_withWebp
                   }
                 }
@@ -50,9 +52,13 @@ const IndexPage = () => {
   const seo = data.seoMetaData;
 
   return (
-    <App headerBackgroundFill={'background75'}>
+    <App>
       <SEO title={seo.title} description={seo.metaDescription.content[0].content[0].value} />
       <Hero image={hero.image} title={hero.title} subtitle={hero.subtitle} cta={hero.cta} />
+
+      <Wrapper>
+        
+      </Wrapper>
 
       {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
         {/*<Image />*/}

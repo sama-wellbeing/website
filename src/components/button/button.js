@@ -4,7 +4,7 @@ import styles from './button.module.scss'
 import { Link } from "@reach/router"
 
 const Button = (props) => {
-  const {url, text, classname, internal} = props;
+  const {url, text, internal} = props;
   let button;
 
   if (internal) {

@@ -3,7 +3,7 @@ module.exports = {
     title: `Lo-en`,
     description: `Sensory Awareness - wellness bath and body products`,
     author: `@willpaige`,
-    siteUrl: `https://lo-en.com`
+    siteUrl: `https://lo-en.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,7 +30,7 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 1200,
-              backgroundColor: 'black'
+              backgroundColor: "black",
             },
           },
         ],
@@ -48,8 +48,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -57,21 +57,15 @@ module.exports = {
         fonts: [
           {
             family: `Open Sans`,
-            variants: [
-              `400`, `700`
-            ]
+            variants: [`400`, `700`],
           },
           {
             family: `Montserrat`,
-            variants: [
-              `400`, `700`
-            ]
+            variants: [`400`, `700`],
           },
           {
             family: `Lora`,
-            variants: [
-              `400`, `700`
-            ]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -80,9 +74,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/ // See below to configure properly
-        }
-      }
+          include: /images/, // See below to configure properly
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

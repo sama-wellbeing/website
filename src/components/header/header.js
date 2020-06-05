@@ -9,7 +9,7 @@ import Wrapper from "../wrapper/wrapper"
 
 import styles from "./header.module.scss"
 
-const Header = ({ backgroundFill }) => {
+const Header = ({ size }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -32,9 +32,12 @@ const Header = ({ backgroundFill }) => {
       }
     `
   );
-  const headerClass = classnames(styles.header, styles.headerBackground, {
-    [styles[backgroundFill]] : backgroundFill
-  });
+
+  const headerClass = classnames(styles.header, styles.headerBackground);
+
+  const headerClassHeight = classnames(styles.headerInner, {
+    [styles[size]]: size
+  })
 
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
@@ -42,18 +45,20 @@ const Header = ({ backgroundFill }) => {
     <header className={headerClass}>
       <Wrapper>
         <Menu menuItems={menuItems} />
-        <Brand />
+        <div className={headerClassHeight}>
+          <Brand />
+        </div>
       </Wrapper>
     </header>
   )
 }
 
 Header.propTypes = {
-  backgroundFill: PropTypes.string
+  size: PropTypes.string
 }
 
 Header.defaultProps = {
-  backgroundFill: 'backgroundWrap'
+  size: 'medium'
 }
 
 export default Header

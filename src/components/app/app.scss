@@ -1,4 +1,11 @@
+@import "../../scss/variables";
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
 }

@@ -1,32 +1,35 @@
 import React from "react"
-import Image from "../image/image"
+import BackgroundImage from 'gatsby-background-image'
 import * as PropTypes from "prop-types"
 import styles from './hero.module.scss'
 import Button from "../button/button"
+import classnames from "classnames"
 
 const Hero = (props) => {
-  const {image, title, subtitle, cta} = props;
+  const { image, title, subtitle, cta, backgroundColor, size } = props;
+  
+  const heroClass = classnames(styles.hero, {
+    [styles[size]]: size,
+  })
 
   return (
-    <div className={styles.hero}>
-      <div className={styles.image}>
-        <Image fluid={image.fluid} />
-      </div>
-      <div className={styles.contentContainer}>
-        <div className={styles.content}>
-          <h2 className={styles.title}>{title}</h2>
+    <div className={heroClass}>
+      <BackgroundImage className={styles.background} fluid={image.fluid} backgroundColor={backgroundColor} />
 
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-          {cta && (
-            <div className={styles.cta}>
-              <Button
-                url={`/${cta.internalUrl.slug}/`}
-                internal={true}
-                text={cta.text}
-              />
-            </div>
-          )}
-        </div>
+      <div className={styles.content}>
+        <h2 className={styles.title}>{title}</h2>
+
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+
+        {cta && (
+          <div className={styles.cta}>
+            <Button
+              url={`/${cta.internalUrl.slug}/`}
+              internal={true}
+              text={cta.text}
+            />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -38,5 +41,7 @@ Hero.propTypes = {
   image: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  cta: PropTypes.object
+  cta: PropTypes.object,
+  backgroundColor: PropTypes.string,
+  size: PropTypes.string
 }

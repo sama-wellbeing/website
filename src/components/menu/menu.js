@@ -4,15 +4,11 @@ import classnames from 'classnames'
 import styles from "./menu.module.scss"
 import MenuItem from "../menu-item/menu-item"
 
-function RenderMenu(props) {
+const MenuItems = (props) => {
   const {menuItems, theme} = props;
 
-  const listItems = menuItems.map((item, key) =>
+  return menuItems.map((item, key) =>
     <MenuItem key={key} slug={item.slug} title={item.title} theme={theme}/>
-  );
-
-  return (
-    <>{listItems}</>
   );
 }
 
@@ -24,7 +20,7 @@ const Menu = ({ menuItems, theme }) => {
 
   return (
     <ul className={ menuClass }>
-      <RenderMenu menuItems={menuItems} theme={theme} />
+      <MenuItems menuItems={menuItems} theme={theme} />
     </ul>
   )
 }

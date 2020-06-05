@@ -12,11 +12,11 @@ import Header from "../header/header"
 import "./app.scss"
 
 const App = (props) => {
-  const {children, headerBackgroundFill} = props;
+  const {children, headerSize} = props;
 
   return (
     <>
-      <Header backgroundFill={headerBackgroundFill} />
+      <Header size={headerSize} />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}

@@ -4,19 +4,21 @@ import SEO from "../../components/seo"
 import { graphql, Link } from "gatsby"
 
 function RenderPosts(props) {
-    const { posts, slug } = props;
+    // const { posts, slug } = props;
 
-    const listItems = posts.map((item, key) =>
-        <li key={key}>
-            <Link to={`/${slug}/${item.slug}/`} >
-                {item.title}
-            </Link>
-        </li>
-    );
+    // const listItems = posts.map((item, key) =>
+    //     <li key={key}>
+    //         <Link to={`/${slug}/${item.slug}/`} >
+    //             {item.title}
+    //         </Link>
+    //     </li>
+    // );
 
-    return (
-      <ul>{listItems}</ul>
-    );
+    // return (
+    //   <ul>{listItems}</ul>
+    // );
+  
+  return <></>
 }
 
 const PostsTemplate = ({ data }) => {

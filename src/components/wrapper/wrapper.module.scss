@@ -1,5 +1,7 @@
+@import "../../scss/variables";
+
 .wrapper {
   max-width: 1440px;
-  width: 88%;
   margin: 0 auto;
+  padding: 0 $gridMarginMedium;
 }

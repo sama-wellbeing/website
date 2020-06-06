@@ -4,6 +4,8 @@ $red: #cc978e;
 $lilac: #cddad2;
 $lightBlue: #d5dfe5;
 
+$greyLight: #f7f7f7;
+
 $titleColor: #000;
 
 $gridMarginLarge: 9rem;
@@ -15,3 +17,8 @@ $headerMargin: 5rem;
 $headerMarginLg: $gridMarginLarge;
 
 $gridMarginCategoryThumbnail: 0.3rem;
+
+$themeGradient: linear-gradient(-45deg, $green, $lightBlue, $blue, $lilac);
+
+$fontSerif: 'Open Sans', serif;
+$fontSansSerif:  "Lora", "Georgia", "Montserrat", "Helvetica Neue", "sans-serif";

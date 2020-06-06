@@ -43,6 +43,7 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: `J0Rv_qrgoapP_MeUfY8te4NFc2Kk2M815NMlYYstPoE`,
         downloadLocal: true,
+        useNameForId: false
       },
     },
     {

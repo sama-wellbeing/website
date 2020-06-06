@@ -26,6 +26,8 @@ const CategoryThumbnail = props => {
 
 CategoryThumbnail.propTypes = {
   image: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 export default CategoryThumbnail

@@ -8,6 +8,7 @@ import Hero from "../components/hero/hero"
 import Wrapper from "../components/wrapper/wrapper"
 import { colours, headerHeights, heroHeights } from '../constants/theme';
 import CategoryThumbnailRow from '../components/category-thumbnail-row/category-thumbnail-row';
+import PostsLists from "../components/posts-list/posts-list"
 
 const IndexPage = () => {
   let data = useStaticQuery(
@@ -33,7 +34,7 @@ const IndexPage = () => {
                 title
                 subtitle
                 image {
-                  fluid(maxWidth: 2440) {
+                  fluid(maxWidth: 3000, quality: 90) {
                     ...GatsbyContentfulFluid_withWebp
                   }
                 }
@@ -48,8 +49,30 @@ const IndexPage = () => {
                 title
                 slug
                 teaserImage {
-                  fluid(maxWidth: 400) {
+                  fluid(maxWidth: 1000, quality: 90) {
                     ...GatsbyContentfulFluid_withWebp
+                  }
+                }
+              }
+              posts {
+                slug
+                title
+                teaserText {
+                  childMarkdownRemark {
+                    excerpt(truncate: true, pruneLength: 245)
+                  }
+                }
+                teaserImage {
+                  fluid(maxWidth: 1000, quality: 90) {
+                    ...GatsbyContentfulFluid_withWebp
+                  }
+                }
+                contentfulparent {
+                  slug
+                  contentfulparent {
+                    title
+                    theme
+                    slug
                   }
                 }
               }
@@ -63,7 +86,9 @@ const IndexPage = () => {
 
   const hero = data.hero;
   const seo = data.seoMetaData;
-  console.log(data);
+
+  console.log(data.posts);
+  
   return (
     <App headerSize={headerHeights.LARGE}>
       <SEO
@@ -81,6 +106,7 @@ const IndexPage = () => {
 
       <Wrapper>
         <CategoryThumbnailRow categories={data.contentCategories} />
+        <PostsLists posts={data.posts} />
       </Wrapper>
     </App>
   )

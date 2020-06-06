@@ -5,6 +5,7 @@ const typography = new Typography({
   baseLineHeight: 1.8,
   scaleRatio: 2.6,
   bodyGray: 10,
+  headerWeight: 'normal',
   headerFontFamily: [
     "Lora",
     "Georgia",

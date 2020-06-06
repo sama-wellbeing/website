@@ -36,14 +36,14 @@ const PostsTemplate = ({ data }) => {
 export default PostsTemplate;
 
 export const pageQuery = graphql`
-    query PostsQuery($id: String!) {
-      contentfulPosts(id: {eq: $id}) {
+  query PostsQuery($id: String!) {
+    contentfulPosts(id: {eq: $id}) {
+      title
+      slug
+      categories {
         title
         slug
-        posts {
-            title
-            slug
-        }
       }
     }
+  }
 `

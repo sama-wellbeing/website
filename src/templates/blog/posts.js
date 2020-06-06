@@ -24,15 +24,17 @@ function RenderPosts(props) {
 const PostsTemplate = ({ data }) => {
     const content = data.contentfulPosts;
 
-    return (
-      <App>
-        <SEO title="Product Page" />
-        <h1>
-            {content.title}
-        </h1>
-        <RenderPosts slug={content.slug} posts={content.posts}/>
-      </App>
-    );
+    // return (
+    //   <App>
+    //     <SEO title="Product Page" />
+    //     <h1>
+    //         {content.title}
+    //     </h1>
+    //     <RenderPosts slug={content.slug} posts={content.posts}/>
+    //   </App>
+    // );
+  
+  return <App></App>
 }
 
 export default PostsTemplate;

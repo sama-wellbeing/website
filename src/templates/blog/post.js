@@ -12,9 +12,8 @@ const PostTemplate = ({ data }) => {
 
   return (
     <App theme={theme}>
-      <PageHeader menuItems={cornerstone.categories} theme={theme} hero={content.hero} />
+      <PageHeader menuItems={cornerstone.categories} theme={theme} hero={content.hero} title={content.title} />
       <Wrapper>
-        <h1>{content.title}</h1>
       </Wrapper>
     </App>
   )

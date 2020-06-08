@@ -10,10 +10,8 @@ const PostsTemplate = ({ data }) => {
 
   return (
     <App theme={theme}>
-      <PageHeader menuItems={content.categories} theme={theme}/>
-
+      <PageHeader menuItems={content.categories} theme={theme} title={content.title} />
       <Wrapper>
-        <h1>{content.title}</h1>
       </Wrapper>
     </App>
   )

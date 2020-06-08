@@ -10,17 +10,18 @@ import * as PropTypes from "prop-types"
 import Header from "../header/header"
 
 import "./app.scss"
+import Footer from "../footer/footer"
+import SEO from '../seo';
 
 const App = (props) => {
-  const {children, headerSize} = props;
+  const {children, headerSize, theme} = props;
 
   return (
     <>
-      <Header size={headerSize} />
+      <SEO title="Product Page" />
+      <Header size={headerSize} theme={theme} />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}
-      </footer>
+      <Footer />
     </>
   )
 }

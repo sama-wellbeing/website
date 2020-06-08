@@ -1,0 +1,31 @@
+@import "../../../scss/variables";
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-small {
+  margin-left: -$gridMarginExtraSmall;
+  margin-right: -$gridMarginExtraSmall;
+}
+
+.small {
+  margin-left: -$gridMarginSmall;
+  margin-right: -$gridMarginSmall;
+}
+
+.medium {
+  margin-left: -$gridMarginMedium;
+  margin-right: -$gridMarginMedium;
+}
+
+.large {
+  margin-left: -$gridMarginLarge;
+  margin-right: -$gridMarginLarge;
+}
+
+.extra-large {
+  margin-left: -$gridMarginExtraLarge;
+  margin-right: -$gridMarginExtraLarge;
+}

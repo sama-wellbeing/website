@@ -1,24 +1,34 @@
+// Primary Brand Colours
 $blue: #97c1ce;
 $green: #cccc97;
 $red: #cc978e;
 $lilac: #cddad2;
+
+// Secondary Brand Colours
 $lightBlue: #d5dfe5;
+$darkBlue: #4a6373;
 
 $greyLight: #f7f7f7;
 
 $titleColor: #000;
+$textColor: lighten($titleColor, 5%);
 
-$gridMarginLarge: 9rem;
-$gridMarginMedium: 6rem;
-$gridMarginSmall: 3rem;
-$gridMarginExtraSmall: 1rem;
+$gridMarginExtraLarge: 9rem;
+$gridMarginLarge: 6rem;
+$gridMarginMedium: 3rem;
+$gridMarginSmall: 1rem;
+$gridMarginExtraSmall: 0.3rem;
 
 $headerMargin: 5rem;
-$headerMarginLg: $gridMarginLarge;
+$headerMarginLg: $gridMarginExtraLarge;
 
-$gridMarginCategoryThumbnail: 0.3rem;
-
-$themeGradient: linear-gradient(-45deg, $green, $lightBlue, $blue, $lilac);
+$themeGradient: linear-gradient(-50deg, $green, $lightBlue, lighten($blue, 3%), $lilac);
+$themeGradientBlue: linear-gradient(-45deg, darken( $blue, 20% ), lighten($blue, 10%));
+$themeGradientLightBlue: linear-gradient(-45deg, darken($lightBlue, 50%), $lightBlue);
+$themeGradientRed: linear-gradient(-45deg, lighten($red, 50%), $red);
+$themeGradientLilac: linear-gradient(-45deg, lighten($lilac, 50%), $lilac);
+$themeGradientGreen: linear-gradient(-45deg, lighten($green, 50%), $green);
+$themeGradientGrey: linear-gradient(-12deg, darken($greyLight, 3%), lighten($greyLight, 1%));
 
 $fontSerif: 'Open Sans', serif;
 $fontSansSerif:  "Lora", "Georgia", "Montserrat", "Helvetica Neue", "sans-serif";

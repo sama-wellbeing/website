@@ -1,8 +1,7 @@
 @import "../../scss/variables";
 
 .thumbnailContainer {
-    padding: 0 $gridMarginCategoryThumbnail;
-    flex: 1;
+    padding: 0 $gridMarginExtraSmall;
     display: flex;
 }
 
@@ -10,7 +9,7 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: $gridMarginLarge $gridMarginSmall;
+    padding: $gridMarginExtraLarge $gridMarginMedium;
     color: #000;
 }
 

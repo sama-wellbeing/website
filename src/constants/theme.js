@@ -7,12 +7,12 @@ export const colours = {
   LILAC: "#cddad2",
 }
 
-export const colourMap = {
-  'Light Blue': 'LIGHT_BLUE',
-  'Blue': 'BLUE',
-  'Green': 'GREEN',
-  'Red': 'RED',
-  'Lilac': 'LILAC',
+export const themeMap = {
+  LIGHT_BLUE: 'Light Blue',
+  BLUE: 'Blue',
+  GREEN: 'Green',
+  RED: 'Red',
+  LILAC: 'Lilac',
 }
 
 export const headerHeights = {

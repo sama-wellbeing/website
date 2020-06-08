@@ -59,7 +59,7 @@ const IndexPage = () => {
                 title
                 teaserText {
                   childMarkdownRemark {
-                    excerpt(truncate: true, pruneLength: 245)
+                    excerpt(truncate: true, pruneLength: 350)
                   }
                 }
                 teaserImage {
@@ -86,8 +86,6 @@ const IndexPage = () => {
 
   const hero = data.hero;
   const seo = data.seoMetaData;
-
-  console.log(data.posts);
   
   return (
     <App headerSize={headerHeights.LARGE}>

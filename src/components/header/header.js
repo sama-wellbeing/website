@@ -8,8 +8,12 @@ import Brand from "../brand/brand"
 import Wrapper from "../wrapper/wrapper"
 
 import styles from "./header.module.scss"
+import { MenuKeys } from '../../constants/menus';
 
-const Header = ({ size }) => {
+const Header = (props) => {
+  const { size, theme } = props;
+  const themeClean = theme ? theme.replace(/\s/g, "") : 'Default';
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -33,8 +37,9 @@ const Header = ({ size }) => {
     `
   );
 
-  const headerClass = classnames(styles.header, styles.headerBackground);
-
+  const headerClass = classnames(styles.header, styles.headerBackground, {
+    [styles[`theme${themeClean}`]]: themeClean,
+  })
   const headerClassHeight = classnames(styles.headerInner, {
     [styles[size]]: size
   })
@@ -44,7 +49,7 @@ const Header = ({ size }) => {
   return (
     <header className={headerClass}>
       <Wrapper>
-        <Menu menuItems={menuItems} />
+        <Menu menuItems={menuItems} theme={MenuKeys.PRIMARY} inline/>
         <div className={headerClassHeight}>
           <Brand />
         </div>

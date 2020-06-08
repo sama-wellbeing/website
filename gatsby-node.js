@@ -32,8 +32,9 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         buildPages(createPage, result.data);
-        // buildShop(createPage, result.data);
         buildBlog(createPage, result.data);
+
+        // buildShop(createPage, result.data);
       })
     )
   })

@@ -1,0 +1,32 @@
+@import "../../../scss/variables";
+
+.col {
+  flex: 1;
+} 
+
+.extra-small {
+  padding-left: $gridMarginExtraSmall;
+  padding-right: $gridMarginExtraSmall;
+}
+
+
+.small {
+  padding-left: $gridMarginSmall;
+  padding-right: $gridMarginSmall;
+}
+
+
+.medium {
+  padding-left: $gridMarginMedium;
+  padding-right: $gridMarginMedium;
+}
+
+.large {
+  padding-left: $gridMarginLarge;
+  padding-right: $gridMarginLarge;
+}
+
+.extra-large {
+  padding-left: $gridMarginExtraLarge;
+  padding-right: $gridMarginExtraLarge;
+}

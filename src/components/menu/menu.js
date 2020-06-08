@@ -8,14 +8,13 @@ const MenuItems = (props) => {
   const {menuItems, theme} = props;
 
   return menuItems.map((item, key) =>
-    <MenuItem key={key} slug={item.slug} title={item.title} theme={theme}/>
+    <MenuItem key={key} slug={item.slug} title={item.title} theme={theme} menuItems={item.menuItems}/>
   );
 }
 
-const Menu = ({ menuItems, theme }) => {
-  const menuClass = classnames(styles.menu, {
-    [styles.inline]: theme === 'primary',
-    [styles[theme]] : true
+const Menu = ({ menuItems, className, theme, inline }) => {
+  const menuClass = classnames(className, styles.menu, {
+    [styles.inline]: inline,
   });
 
   return (
@@ -27,11 +26,6 @@ const Menu = ({ menuItems, theme }) => {
 
 Menu.propTypes = {
   menuItems: PropTypes.array,
-  theme: PropTypes.string
-}
-
-Menu.defaultProps = {
-  theme: `primary`
 }
 
 export default Menu

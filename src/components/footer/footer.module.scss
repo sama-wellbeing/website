@@ -1,0 +1,26 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+@include gradientAnimation;
+
+.footer {
+  padding: $gridMarginLarge 0;
+  margin-top: $gridMarginLarge;
+  background: $themeGradientGrey;
+  background-size: 600% 600%;
+  animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+.col {
+  flex: 1;
+}
+
+.title {
+  margin-bottom: $gridMarginSmall;
+}
+
+.copyright {
+  margin-top: $gridMarginMedium;
+  color:darken($greyLight, 10%);
+  font-size: 12px;
+}

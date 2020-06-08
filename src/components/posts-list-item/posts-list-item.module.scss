@@ -4,17 +4,11 @@
 
 $borderMargin: 30px;
 $borderWidth: 10px;
-$contentGridMargin: $gridMarginSmall / 2;
-$contentMargin: $gridMarginSmall;
+$contentGridMargin: $gridMarginMedium / 2;
+$contentMargin: $gridMarginMedium;
 
 .row {
-  display: flex;
-  margin: 0 (-$gridMarginSmall);
-  margin-bottom: $gridMarginMedium;
-}
-
-.col {
-  padding: 0 $gridMarginSmall;
+  margin-bottom: $gridMarginLarge;
 }
 
 .thumbnail-container {
@@ -42,9 +36,8 @@ $contentMargin: $gridMarginSmall;
     top: $borderMargin;
     bottom: 0;
     background: $themeGradient;
-    background-size: 400% 400%;
+    background-size: 600% 600%;
     animation: gradientAnimation 3s ease-in-out infinite;
-    opacity: 0.3;
   }
 
   &:after {
@@ -55,6 +48,31 @@ $contentMargin: $gridMarginSmall;
     background-color: #fff;
     z-index: 1;
   }
+}
+
+.theme-light-blue:before {
+  background: $themeGradientLightBlue;
+  background-size: 600% 600%;
+}
+
+.theme-blue:before {
+  background: $themeGradientBlue;
+  background-size: 600% 600%;
+}
+
+.theme-red:before {
+  background: $themeGradientRed;
+  background-size: 600% 600%;
+}
+
+.theme-lilac:before {
+  background: $themeGradientLilac;
+  background-size: 600% 600%;
+}
+
+.theme-green:before {
+  background: $themeGradientGreen;
+  background-size: 600% 600%;
 }
 
 .thumbnail-is-odd {
@@ -79,20 +97,20 @@ $contentMargin: $gridMarginSmall;
 
 .content-col {
   flex: 2;
-  padding-top: $gridMarginMedium;
+  padding-top: $gridMarginLarge;
   position: relative;
   z-index: 3;
 }
 
 .title-container {
   position: relative;
-  left: -$gridMarginSmall * 4;
+  left: -$gridMarginMedium * 4;
   margin-bottom: $contentMargin;
 }
 
 .title-is-odd {
   left: auto;
-  right: -$gridMarginSmall * 4;
+  right: -$gridMarginMedium * 4;
 }
 
 .title {
@@ -114,6 +132,34 @@ $contentMargin: $gridMarginSmall;
   text-align: right;
 }
 
-.copy-container {
-
+.category-link {
+  position: relative;
+  padding-bottom: 2px;
+  color: $lightBlue;
+  border-bottom: 2px solid $lightBlue;
 }
+
+.theme-category-light-blue {
+  color: $lightBlue;
+}
+
+.theme-category-blue {
+  color: $blue;
+  border-bottom-color: $blue;
+}
+
+.theme-category-red {
+  color: $red;
+  border-bottom-color: $red;
+}
+
+.theme-category-lilac {
+  color: $lilac;
+  border-bottom-color: $lilac;
+}
+
+.theme-category-green {
+  color: $green;
+  border-bottom-color: $green;
+}
+

@@ -22,7 +22,9 @@ function RenderPosts(props) {
 }
 
 const PostsTemplate = ({ data }) => {
-    const content = data.contentfulPosts;
+  const content = data.contentfulPosts;
+  
+  console.log(content);
 
     // return (
     //   <App>
@@ -34,7 +36,7 @@ const PostsTemplate = ({ data }) => {
     //   </App>
     // );
   
-  return <App></App>
+  return <App theme={content.theme}></App>
 }
 
 export default PostsTemplate;
@@ -44,6 +46,7 @@ export const pageQuery = graphql`
     contentfulPosts(id: {eq: $id}) {
       title
       slug
+      theme
       categories {
         title
         slug

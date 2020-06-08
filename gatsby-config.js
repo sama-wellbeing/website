@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Lo-en`,
+    title: `Sama Wellbeing`,
     description: `Sensory Awareness - wellness bath and body products`,
     author: `@willpaige`,
-    siteUrl: `https://lo-en.com`,
+    siteUrl: `https://sama-wellbeing.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -43,7 +43,7 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: `J0Rv_qrgoapP_MeUfY8te4NFc2Kk2M815NMlYYstPoE`,
         downloadLocal: true,
-        useNameForId: false
+        useNameForId: false,
       },
     },
     {
@@ -89,6 +89,16 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        type: `user-profile`,
+        username: `botanyblend`,
+        access_token: "2071680217.1677ed0.1d733dbd47b74641a86366fe7225fdda",
+        // instagram_id: "756f10518de04e9ba06b675b382671f5",
+        instagram_id: 2071680217,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

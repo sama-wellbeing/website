@@ -1,7 +1,5 @@
 @import "../../scss/variables";
 
 .row {
-  display: flex;
-  justify-content: space-between;
-  margin: $gridMarginMedium (-$gridMarginCategoryThumbnail);
+  margin: $gridMarginLarge (-$gridMarginExtraSmall);
 }

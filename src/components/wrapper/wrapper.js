@@ -1,9 +1,11 @@
 import React from "react"
 import { wrapper } from './wrapper.module.scss'
+import classnames from "classnames"
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ className, children }) => {
+  const wrapperClass = classnames(wrapper, className);
   return (
-    <div className={wrapper}>
+    <div className={wrapperClass}>
       {children}
     </div>
   )

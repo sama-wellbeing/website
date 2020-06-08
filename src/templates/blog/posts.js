@@ -1,37 +1,20 @@
 import React from 'react';
 import App from "../../components/app/app"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Wrapper from '../../components/wrapper/wrapper';
-
-function RenderPosts(props) {
-    // const { posts, slug } = props;
-
-    // const listItems = posts.map((item, key) =>
-    //     <li key={key}>
-    //         <Link to={`/${slug}/${item.slug}/`} >
-    //             {item.title}
-    //         </Link>
-    //     </li>
-    // );
-
-    // return (
-    //   <ul>{listItems}</ul>
-    // );
-  
-  return <></>
-}
+import PageHeader from '../../components/page-header/page-header';
 
 const PostsTemplate = ({ data }) => {
   const content = data.contentfulPosts;
-  
-  console.log(content);
+  const theme = content.theme ? content.theme : null;
 
   return (
-    <App theme={content.theme ? content.theme : null}>
+    <App theme={theme}>
+      <PageHeader menuItems={content.categories} theme={theme}/>
+
       <Wrapper>
         <h1>{content.title}</h1>
       </Wrapper>
-      <RenderPosts slug={content.slug} posts={content.posts} />
     </App>
   )
 };
@@ -47,6 +30,10 @@ export const pageQuery = graphql`
       categories {
         title
         slug
+        contentfulparent {
+          slug
+          title
+        }
       }
     }
   }

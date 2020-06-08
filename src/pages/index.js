@@ -1,14 +1,12 @@
 import React from "react"
 
 import App from "../components/app/app"
-// import Image from "../components/image/image"
-import SEO from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
-import Hero from "../components/hero/hero"
 import Wrapper from "../components/wrapper/wrapper"
-import { colours, headerHeights, heroHeights } from '../constants/theme';
+import { headerHeights, heroHeights } from '../constants/theme';
 import CategoryThumbnailRow from '../components/category-thumbnail-row/category-thumbnail-row';
 import PostsLists from "../components/posts-list/posts-list"
+import PageHeader from "../components/page-header/page-header"
 
 const IndexPage = () => {
   let data = useStaticQuery(
@@ -86,21 +84,12 @@ const IndexPage = () => {
 
   const hero = data.hero;
   const seo = data.seoMetaData;
+
+  hero.height = heroHeights.SMALL;
   
   return (
-    <App headerSize={headerHeights.LARGE}>
-      <SEO
-        title={seo.title}
-        description={seo.metaDescription.content[0].content[0].value}
-      />
-      <Hero
-        size={heroHeights.SMALL}
-        image={hero.image}
-        title={hero.title}
-        subtitle={hero.subtitle}
-        cta={hero.cta}
-        backgroundColor={colours.LIGHT_BLUE}
-      />
+    <App seo={seo} headerSize={headerHeights.LARGE}>
+      <PageHeader hero={hero} />
 
       <Wrapper>
         <CategoryThumbnailRow categories={data.contentCategories} />

@@ -19,11 +19,12 @@ $gridMarginMedium: 3rem;
 $gridMarginSmall: 1rem;
 $gridMarginExtraSmall: 0.3rem;
 
+$borderWidthLarge: 0.6rem;
 $headerMargin: 5rem;
 $headerMarginLg: $gridMarginExtraLarge;
 
 $themeGradient: linear-gradient(-50deg, $green, $lightBlue, lighten($blue, 3%), $lilac);
-$themeGradientBlue: linear-gradient(-45deg, lighten($blue, 40%), darken( $blue, 20% ), lighten($blue, 40%));
+$themeGradientBlue: linear-gradient(-45deg, lighten($blue, 40%), $blue, lighten($blue, 40%));
 $themeGradientLightBlue: linear-gradient(-45deg, $lightBlue, darken($lightBlue, 50%), $lightBlue);
 $themeGradientRed: linear-gradient(-45deg, $red, lighten($red, 50%), $red);
 $themeGradientLilac: linear-gradient(-45deg, lighten($lilac, 5%), darken($lilac, 5%), lighten($lilac, 5%));

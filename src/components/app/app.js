@@ -4,21 +4,31 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
+import _ from "lodash"
 import React from "react"
 import * as PropTypes from "prop-types"
 
 import Header from "../header/header"
-
 import "./app.scss"
 import Footer from "../footer/footer"
 import SEO from '../seo';
 
 const App = (props) => {
-  const {children, headerSize, theme} = props;
+  const { children, headerSize, theme, seo } = props;
+  let seoContianer;
+
+  if (_.isUndefined(seo)) {
+    seoContianer = <SEO />
+  } else {
+    const title = seo.title ? seo.title : null;
+    const description = seo.metaDescription ? seo.metaDescription.content[0].content[0].value : null;
+
+    seoContianer = <SEO title={title} description={description} />
+  }
 
   return (
-    <>  
-      <SEO title="Product Page" />
+    <>
+      {seoContianer}
       <Header size={headerSize} theme={theme} />
       <main>{children}</main>
       <Footer theme={theme} />
@@ -29,6 +39,7 @@ const App = (props) => {
 App.propTypes = {
   children: PropTypes.node.isRequired,
   headerBackgroundFill: PropTypes.string,
+  seo: PropTypes.object
 }
 
 export default App

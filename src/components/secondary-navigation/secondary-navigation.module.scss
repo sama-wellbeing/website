@@ -1,0 +1,30 @@
+@import "../../scss/variables";
+
+.navigation {
+  padding: $gridMarginSmall;
+  background: $lightBlue;
+}
+
+.theme-default {
+  background: $blue;
+}
+
+.theme-light-blue {
+  background: $lightBlue;
+}
+
+.theme-blue {
+  background: $blue;
+}
+
+.theme-red {
+  background: $red;
+}
+
+.theme-lilac {
+  background: $lilac;
+}
+
+.theme-green {
+  background: $green;
+}

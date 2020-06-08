@@ -2,10 +2,9 @@ import _ from "lodash"
 import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import classnames from "classnames"
 
-// import Menu from "../menu/menu"
 import Wrapper from "../wrapper/wrapper"
-
 import styles from "./footer.module.scss"
 import { MenuKeys } from '../../constants/menus';
 import Menu from "../menu/menu"
@@ -45,7 +44,7 @@ const buildCategoryMenus = (menuItems) => {
   return menu;
 }
 
-const Footer = ({ size }) => {
+const Footer = ({ theme }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -84,18 +83,22 @@ const Footer = ({ size }) => {
     `
   )
 
-
   const menus = {
     [MenuKeys.CORNERSTONE_MENU]: buildCategoryMenus(
       data.cornerstoneMenu.nodes[0].menuItems
     ),
     [MenuKeys.PAGE_MENU]: data.pageMenu.nodes[0].menuItems,
   }
+  const themeClean = theme ? theme.replace(/\s/g, "") : theme;
+  const footerClass = classnames(styles.footer, {
+    [styles[`theme${themeClean}`]]: theme,
+  })
+
 
   const gridSize = GridSize.SMALL;
 
   return (
-    <div className={styles.footer}>
+    <div className={footerClass}>
       <Wrapper>
         <Row size={gridSize}>
           <Col size={gridSize}>
@@ -124,7 +127,12 @@ const Footer = ({ size }) => {
 }
 
 Footer.propTypes = {
-  size: PropTypes.string
+  size: PropTypes.string,
+  theme: PropTypes.string
+}
+
+Footer.defaultProps = {
+  theme: "Default",
 }
 
 export default Footer

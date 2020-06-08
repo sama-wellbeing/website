@@ -12,7 +12,7 @@ import { MenuKeys } from '../../constants/menus';
 
 const Header = (props) => {
   const { size, theme } = props;
-  const themeClean = theme ? theme.replace(/\s/g, "") : 'Default';
+  const themeClean = theme ? theme.replace(/\s/g, "") : theme;
 
   const data = useStaticQuery(
     graphql`
@@ -63,7 +63,8 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  size: 'medium'
+  size: 'medium',
+  theme: 'Default'
 }
 
 export default Header

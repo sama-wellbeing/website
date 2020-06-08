@@ -23,11 +23,11 @@ $headerMargin: 5rem;
 $headerMarginLg: $gridMarginExtraLarge;
 
 $themeGradient: linear-gradient(-50deg, $green, $lightBlue, lighten($blue, 3%), $lilac);
-$themeGradientBlue: linear-gradient(-45deg, darken( $blue, 20% ), lighten($blue, 10%));
-$themeGradientLightBlue: linear-gradient(-45deg, darken($lightBlue, 50%), $lightBlue);
-$themeGradientRed: linear-gradient(-45deg, lighten($red, 50%), $red);
-$themeGradientLilac: linear-gradient(-45deg, lighten($lilac, 50%), $lilac);
-$themeGradientGreen: linear-gradient(-45deg, lighten($green, 50%), $green);
+$themeGradientBlue: linear-gradient(-45deg, lighten($blue, 40%), darken( $blue, 20% ), lighten($blue, 40%));
+$themeGradientLightBlue: linear-gradient(-45deg, $lightBlue, darken($lightBlue, 50%), $lightBlue);
+$themeGradientRed: linear-gradient(-45deg, $red, lighten($red, 50%), $red);
+$themeGradientLilac: linear-gradient(-45deg, lighten($lilac, 5%), darken($lilac, 5%), lighten($lilac, 5%));
+$themeGradientGreen: linear-gradient(-45deg, $green, lighten($green, 20%), $green);
 $themeGradientGrey: linear-gradient(-12deg, darken($greyLight, 3%), lighten($greyLight, 1%));
 
 $fontSerif: 'Open Sans', serif;

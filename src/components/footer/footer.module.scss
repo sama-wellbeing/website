@@ -6,9 +6,49 @@
 .footer {
   padding: $gridMarginLarge 0;
   margin-top: $gridMarginLarge;
-  background: $themeGradientGrey;
+  margin-bottom: 10px;
+  background: $greyLight;
+  position: relative;
+
+  &:after {
+    content: '';
+    height: 10px;
+    bottom: -10px;
+    right: 0;
+    left: 0;
+    position: absolute;
+    animation: gradientAnimation 5s ease-in-out infinite;
+  }
+}
+
+.theme-default:after {
+  background: $themeGradient;
   background-size: 600% 600%;
-  animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+.theme-light-blue:after {
+  background: $themeGradientLightBlue;
+  background-size: 600% 600%;
+}
+
+.theme-blue:after {
+  background: $themeGradientBlue;
+  background-size: 600% 600%;
+}
+
+.theme-red:after {
+  background: $themeGradientRed;
+  background-size: 600% 600%;
+}
+
+.theme-lilac:after {
+  background: $themeGradientLilac;
+  background-size: 600% 600%;
+}
+
+.theme-green:after {
+  background: $themeGradientGreen;
+  background-size: 600% 600%;
 }
 
 .col {

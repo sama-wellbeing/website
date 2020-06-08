@@ -21,7 +21,7 @@ const App = (props) => {
       <SEO title="Product Page" />
       <Header size={headerSize} theme={theme} />
       <main>{children}</main>
-      <Footer />
+      <Footer theme={theme} />
     </>
   )
 }

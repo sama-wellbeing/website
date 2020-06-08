@@ -98,7 +98,7 @@ module.exports = {
         username: `botanyblend`,
         access_token: "2071680217.1677ed0.1d733dbd47b74641a86366fe7225fdda",
         // instagram_id: "756f10518de04e9ba06b675b382671f5",
-        instagram_id: 2071680217,
+        instagram_id: "2071680217",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

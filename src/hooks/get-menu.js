@@ -17,7 +17,5 @@ export const getMenuPrimaryData = () => {
     `
   );
 
-  console.log(allContentfulMenu);
-
   return allContentfulMenu.node;
 };

@@ -4,12 +4,11 @@ import SEO from "../../components/seo"
 import { graphql } from "gatsby"
 import Wrapper from '../../components/wrapper/wrapper';
 
-const PostTemplate = ({ data }) => {
-    const content = data.contentfulPost;
+const CategoryTemplate = ({ data }) => {
+    const content = data.contentfulPostCategory;
 
     return (
       <App>
-        <SEO title={content.title} />
         <Wrapper>
           <h1>{content.title}</h1>
         </Wrapper>
@@ -17,11 +16,11 @@ const PostTemplate = ({ data }) => {
     )
 }
 
-export default PostTemplate;
+export default CategoryTemplate;
 
 export const pageQuery = graphql`
-    query PostQuery($id: String!) {
-      contentfulPost(id: {eq: $id}) {
+    query CategoryQuery($id: String!) {
+      contentfulPostCategory(id: {eq: $id}) {
         title
       }
     }

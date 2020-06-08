@@ -17,7 +17,7 @@ const App = (props) => {
   const {children, headerSize, theme} = props;
 
   return (
-    <>
+    <>  
       <SEO title="Product Page" />
       <Header size={headerSize} theme={theme} />
       <main>{children}</main>

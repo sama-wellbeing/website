@@ -7,9 +7,16 @@ import MenuItem from "../menu-item/menu-item"
 const MenuItems = (props) => {
   const {menuItems, theme} = props;
 
-  return menuItems.map((item, key) =>
-    <MenuItem key={key} slug={item.slug} title={item.title} theme={theme} menuItems={item.menuItems}/>
-  );
+  return menuItems.map((item, key) => (
+    <MenuItem
+      key={key}
+      slug={item.slug}
+      title={item.title}
+      theme={theme}
+      menuItems={item.menuItems}
+      parent={item.contentfulparent}
+    />
+  ))
 }
 
 const Menu = ({ menuItems, className, theme, inline }) => {

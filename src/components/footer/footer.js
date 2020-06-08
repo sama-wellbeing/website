@@ -1,5 +1,5 @@
 import _ from "lodash"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import classnames from "classnames"
@@ -22,7 +22,8 @@ const buildCategoryMenus = (menuItems) => {
     const childMenuData = {
       slug: item.slug,
       title: item.title,
-    };
+      contentfulparent: item.contentfulparent
+    }
 
     if (keys.includes(parent.id)) {
       const index = _.findIndex(menu, {
@@ -94,7 +95,6 @@ const Footer = ({ theme }) => {
     [styles[`theme${themeClean}`]]: theme,
   })
 
-
   const gridSize = GridSize.SMALL;
 
   return (
@@ -107,20 +107,26 @@ const Footer = ({ theme }) => {
             </Title>
             <Menu
               className={styles.menu}
-              theme={'footer'}
+              theme={"footer"}
               menuItems={menus[MenuKeys.PAGE_MENU]}
             />
           </Col>
           {menus[MenuKeys.CORNERSTONE_MENU].map((item, key) => (
             <Col key={key} size={gridSize}>
               <Title className={styles.title} type={"h4"}>
-                {item.title}
+                <Link to={`/${item.slug}/`}>{item.title}</Link>
               </Title>
-              <Menu className={styles.menu} theme={'footer'} menuItems={item.menuItems} />
+              <Menu
+                className={styles.menu}
+                theme={"footer"}
+                menuItems={item.menuItems}
+              />
             </Col>
           ))}
         </Row>
-        <div className={styles.copyright}>© {new Date().getFullYear()} {data.site.siteMetadata.title}</div>
+        <div className={styles.copyright}>
+          © {new Date().getFullYear()} {data.site.siteMetadata.title}
+        </div>
       </Wrapper>
     </div>
   )

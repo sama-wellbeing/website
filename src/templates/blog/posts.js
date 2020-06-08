@@ -1,7 +1,7 @@
 import React from 'react';
 import App from "../../components/app/app"
-import SEO from "../../components/seo"
 import { graphql, Link } from "gatsby"
+import Wrapper from '../../components/wrapper/wrapper';
 
 function RenderPosts(props) {
     // const { posts, slug } = props;
@@ -26,18 +26,15 @@ const PostsTemplate = ({ data }) => {
   
   console.log(content);
 
-    // return (
-    //   <App>
-    //     <SEO title="Product Page" />
-    //     <h1>
-    //         {content.title}
-    //     </h1>
-    //     <RenderPosts slug={content.slug} posts={content.posts}/>
-    //   </App>
-    // );
-  
-  return <App theme={content.theme}></App>
-}
+  return (
+    <App theme={content.theme ? content.theme : null}>
+      <Wrapper>
+        <h1>{content.title}</h1>
+      </Wrapper>
+      <RenderPosts slug={content.slug} posts={content.posts} />
+    </App>
+  )
+};
 
 export default PostsTemplate;
 

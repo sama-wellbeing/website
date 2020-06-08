@@ -57,6 +57,10 @@
 
 .title {
   margin-bottom: $gridMarginSmall;
+  
+  & > a {
+    color: $titleColor;
+  }
 }
 
 .copyright {

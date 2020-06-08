@@ -91,16 +91,15 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        type: `user-profile`,
-        username: `botanyblend`,
-        access_token: "2071680217.1677ed0.1d733dbd47b74641a86366fe7225fdda",
-        // instagram_id: "756f10518de04e9ba06b675b382671f5",
-        instagram_id: "2071680217",
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     type: `user-profile`,
+    //     username: `botanyblend`,
+    //     access_token: "2071680217.1677ed0.1d733dbd47b74641a86366fe7225fdda",
+    //     instagram_id: "756f10518de04e9ba06b675b382671f5",
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

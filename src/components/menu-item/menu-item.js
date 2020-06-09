@@ -10,12 +10,21 @@ const MenuItem = ({ title, slug, theme, menuItems, parent }) => {
   const className = classnames(styles.item, {
     [styles[theme]]: true,
   })
+  let freshSlug = slug;
 
-  const freshSlug = !_.isUndefined(parent) ? `/${parent.slug}/${slug}/`: `/${slug}/` ;
+  const isExternal = freshSlug.includes('http');
+
+  if (!isExternal) {
+    freshSlug = !_.isUndefined(parent) ? `/${parent.slug}/${slug}/` : `/${slug}/`;
+  }
 
   return (
     <li className={className}>
-      <Link to={`/${freshSlug}/`}>{title}</Link>
+      {isExternal ? (
+        <a href={freshSlug} title={title}>{title}</a>
+      ): (
+        <Link title={title} to={`/${freshSlug}/`}>{title}</Link>
+      )}
 
       {menuItems && <Menu menuItems={menuItems} />}
     </li>

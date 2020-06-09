@@ -25,6 +25,10 @@ export const pageQuery = graphql`
     query PostQuery($id: String!, $cornerstoneId: String!) {
       post: contentfulPost(id: {eq: $id}) {
         title
+        author {
+          slug
+          title
+        }
       }
       cornerstone: contentfulPosts(id: {eq: $cornerstoneId}) {
         title
@@ -34,6 +38,10 @@ export const pageQuery = graphql`
           slug
           title
           id
+          contentfulparent {
+            slug
+            title
+          }
         }
       }
     }

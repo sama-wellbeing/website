@@ -80,15 +80,27 @@ const Footer = ({ theme }) => {
             }
           }
         }
+        botanyblendMenu: allContentfulMenu(
+          filter: { menuId: { eq: "botanyblend" } }
+        ) {
+          nodes {
+            menuItems {
+              ... on ContentfulLink {
+                slug
+                title
+              }
+            }
+          }
+        }
       }
     `
   )
-
   const menus = {
     [MenuKeys.CORNERSTONE_MENU]: buildCategoryMenus(
       data.cornerstoneMenu.nodes[0].menuItems
     ),
     [MenuKeys.PAGE_MENU]: data.pageMenu.nodes[0].menuItems,
+    [MenuKeys.BOTANYBLEND]: data.botanyblendMenu.nodes[0].menuItems
   }
   const themeClean = theme ? theme.replace(/\s/g, "") : theme;
   const footerClass = classnames(styles.footer, {
@@ -124,6 +136,21 @@ const Footer = ({ theme }) => {
             </Col>
           ))}
         </Row>
+        <div className={styles.botanyblend}>
+          <Title className={styles.title} type={"h4"}>
+            <a
+              href="https://botanyblend.com/"
+              title="Organic Face and Body Oils"
+            >
+              Botanyblend.com
+            </a>
+          </Title>
+          <Menu
+            className={styles.menu}
+            theme={"footer"}
+            menuItems={menus[MenuKeys.BOTANYBLEND]}
+          />
+        </div>
         <div className={styles.copyright}>
           © {new Date().getFullYear()} {data.site.siteMetadata.title}
         </div>

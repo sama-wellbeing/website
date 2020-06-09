@@ -70,9 +70,11 @@ const Footer = ({ theme }) => {
           nodes {
             menuItems {
               ... on ContentfulPostCategory {
+                id
                 slug
                 title
                 contentfulparent {
+                  id
                   slug
                   title
                 }

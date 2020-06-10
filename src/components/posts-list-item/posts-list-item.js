@@ -11,22 +11,21 @@ import Row from '../grid/row/row';
 import { GridSize } from '../../constants/grid';
 
 const PostsListItem = (props) => {
-  const { id, title, content, slug, image, category } = props;
+  const { title, content, slug, image, category, imageIsRight} = props;
   const theme = category.theme.replace(/\s/g, '');
 
-  const isEven = 	id%2 === 0;
   const thumbanilContainerClass = classnames(styles.col, styles.thumbnailContainer, {
-    [styles.thumbnailContainerIsOdd]: !isEven
+    [styles.thumbnailContainerIsRight]: imageIsRight
   });
   const thumbnailClass = classnames(styles.thumbnail, {
-    [styles.thumbnailIsOdd]: !isEven,
+    [styles.thumbnailIsRight]: imageIsRight,
     [styles[`theme${theme}`]]: theme,
   });
   const contentClass = classnames(styles.col, styles.contentCol, {
-    [styles.contentlIsOdd]: !isEven,
+    [styles.contentlIsLeft]: imageIsRight,
   });
   const titleContainer = classnames(styles.content, styles.titleContainer, {
-    [styles.titleIsOdd]: !isEven,
+    [styles.titleIsLeft]: imageIsRight,
   })
   const contentContainer = classnames(styles.content, styles.copyContainer);
   const categoryThemeClass = classnames(styles.categoryLink, {
@@ -37,7 +36,7 @@ const PostsListItem = (props) => {
     <Row className={styles.row} size={GridSize.MEDIUM}>
       <Col className={thumbanilContainerClass} size={GridSize.MEDIUM}>
         <div className={thumbnailClass}>
-          <Image className={styles.image} fluid={image.fluid}></Image>
+          <Image className={styles.image} fluid={image.fluid}/>
         </div>
       </Col>
       <Col className={contentClass} size={GridSize.MEDIUM}>

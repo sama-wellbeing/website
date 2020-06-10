@@ -12,8 +12,10 @@ const PageHeader = ({ menuItems, className, theme, hero, title }) => {
 
   return (
     <div className={pageHeaderClass}>
+      {menuItems && <SecondaryNavigation menuItems={menuItems} theme={theme} />}  
       {hero && (
         <Hero
+          className={styles.hero}
           size={hero.height ? hero.height : heroHeights.MEDIUM}
           image={hero.image}
           title={hero.title}
@@ -22,9 +24,8 @@ const PageHeader = ({ menuItems, className, theme, hero, title }) => {
           backgroundColor={colours.LIGHT_BLUE}
         />
       )}
-      {menuItems && <SecondaryNavigation menuItems={menuItems} theme={theme} />}
       {!hero && title && (
-        <Title className={styles.title} type={'h1'}>
+        <Title className={styles.title} type={"h1"}>
           {title}
         </Title>
       )}

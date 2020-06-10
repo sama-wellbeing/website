@@ -19,6 +19,8 @@ $gridMarginMedium: 3rem;
 $gridMarginSmall: 1rem;
 $gridMarginExtraSmall: 0.3rem;
 
+$flexibleContentVerticalMargin: $gridMarginExtraLarge;
+
 $borderWidthLarge: 0.6rem;
 $headerMargin: 5rem;
 $headerMarginLg: $gridMarginExtraLarge;
@@ -33,3 +35,7 @@ $themeGradientGrey: linear-gradient(-12deg, darken($greyLight, 3%), lighten($gre
 
 $fontSerif: 'Open Sans', serif;
 $fontSansSerif:  "Lora", "Georgia", "Montserrat", "Helvetica Neue", "sans-serif";
+
+// Post list items
+$postListItemborderMargin: 30px;
+$postListItemborderWidth: 10px;

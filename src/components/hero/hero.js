@@ -6,9 +6,9 @@ import Button from "../button/button"
 import classnames from "classnames"
 
 const Hero = (props) => {
-  const { image, title, subtitle, cta, backgroundColor, size } = props;
+  const { image, title, subtitle, cta, backgroundColor, size, className } = props;
   
-  const heroClass = classnames(styles.hero, {
+  const heroClass = classnames(className, styles.hero, {
     [styles[size]]: size,
   })
 

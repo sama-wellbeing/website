@@ -1,80 +1,63 @@
-@import "../../scss/variables";
-@import "../../scss/mixins";
+@import '../../../scss/variables';
+@import "../../../scss/mixins";
 
 @include gradientAnimation;
 
-.header {
+.wrapper {
+  margin: $flexibleContentVerticalMargin 0;
   position: relative;
-  padding-top: 0.8rem;
-}
 
-.headerBackground {
   &:before {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
     bottom: 0;
+    top: 0;
     z-index: -1;
     background-size: 600% 600%;
     animation: gradientAnimation 10s ease-in-out infinite;
   }
 }
 
-.backgroundWrap {
-  &:before {
-    bottom: 0;
-  }
-}
-
-.headerInner {
-  padding: $headerMargin 0;
-}
-
-.large {
-  padding-top: $headerMarginLg;
-  padding-bottom: $headerMarginLg;
-}
-
-.strapline {
-  font-family: $fontSerif;
+.title {
   text-align: center;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #fff;
-  font-size: 12px;
-  margin-top: 10px;
-  margin-bottom: 0;
 }
 
-.theme-default:before {
+.text-white {
+  // color: #fff;
+}
+
+.background-default:before {
   background: $themeGradient;
   background-size: 600% 600%;
 }
 
-.theme-light-blue:before {
+.background-light-blue:before {
   background: $themeGradientLightBlue;
   background-size: 600% 600%;
 }
 
-.theme-blue:before {
+.background-blue:before {
   background: $themeGradientBlue;
   background-size: 600% 600%;
 }
 
-.theme-red:before {
+.background-red:before {
   background: $themeGradientRed;
   background-size: 600% 600%;
 }
 
-.theme-lilac:before {
+.background-lilac:before {
   background: $themeGradientLilac;
   background-size: 600% 600%;
 }
 
-.theme-green:before {
+.background-green:before {
   background: $themeGradientGreen;
   background-size: 600% 600%;
+}
+
+.contentPadding {
+  padding: $flexibleContentVerticalMargin;
 }

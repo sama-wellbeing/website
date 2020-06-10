@@ -3,14 +3,19 @@
 .hero {
   display: flex;
   position: relative;
-  min-height: calc(100vh - 254px);
+  min-height: 500px;
+  height: calc(100vh - 254px);
   justify-content: center;
   align-items: center;
   margin-bottom: $gridMarginLarge;
 }
 
 .small {
-  min-height: calc(100vh - 343px);
+  height: calc(100vh - 343px);
+}
+
+.medium {
+  height: calc(100vh - 500px);
 }
 
 .background {

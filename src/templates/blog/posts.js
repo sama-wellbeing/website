@@ -10,9 +10,13 @@ const PostsTemplate = ({ data }) => {
 
   return (
     <App theme={theme}>
-      <PageHeader menuItems={content.categories} theme={theme} title={content.title} />
-      <Wrapper>
-      </Wrapper>
+      <PageHeader
+        menuItems={content.categories}
+        theme={theme}
+        title={content.title}
+        hero={content.hero}
+      />
+      <Wrapper></Wrapper>
     </App>
   )
 };
@@ -25,6 +29,15 @@ export const pageQuery = graphql`
       title
       slug
       theme
+      hero {
+        subtitle
+        title
+        image {
+          fluid(maxWidth: 3000, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
       categories {
         title
         slug

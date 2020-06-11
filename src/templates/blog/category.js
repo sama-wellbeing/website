@@ -16,6 +16,7 @@ const CategoryTemplate = ({ data }) => {
         menuItems={menuItems}
         theme={categories.theme}
         title={content.title}
+        hero={content.hero}
       />
       <Wrapper>
         <PostsLists posts={content.post} />

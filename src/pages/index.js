@@ -4,7 +4,7 @@ import App from "../components/app/app"
 import { graphql, useStaticQuery } from "gatsby"
 import Wrapper from "../components/wrapper/wrapper"
 import { headerHeights, heroHeights } from '../constants/theme';
-import CategoryThumbnailRow from '../components/category-thumbnail-row/category-thumbnail-row';
+import ThumbnailNavigation from "../components/thumbnail-navigation/thumbnail-navigation"
 import PostsLists from "../components/posts-list/posts-list"
 import PageHeader from "../components/page-header/page-header"
 
@@ -92,7 +92,7 @@ const IndexPage = () => {
       <PageHeader hero={hero} />
 
       <Wrapper>
-        <CategoryThumbnailRow categories={data.contentCategories} />
+        <ThumbnailNavigation thumbnails={data.contentCategories} />
         <PostsLists posts={data.posts} />
       </Wrapper>
     </App>

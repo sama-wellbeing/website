@@ -1,17 +1,20 @@
+import _ from "lodash"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import styles from "./category-thumbnail.module.scss"
+import styles from "./thumbnail-navigation-item.module.scss"
 import BackgroundImage from "gatsby-background-image"
-import { colours } from '../../constants/theme';
+import { colours } from '../../constants/theme'
 import Col from "../grid/col/col"
 
-const CategoryThumbnail = props => {
-  const {slug, title, image } = props;
+const ThumbnailNavigationItem = props => {
+  const {slug, title, image, parent } = props;
     
+  const freshSlug = !_.isUndefined(parent) ? `/${parent.slug}/${slug}/` : `/${slug}/`
+
   return (
     <Col className={styles.thumbnailContainer}>
-      <Link to={`/${slug}/`} className={styles.thumbnail}>
+      <Link to={freshSlug} className={styles.thumbnail}>
         <BackgroundImage
           className={styles.background}
           fluid={image.fluid}
@@ -25,10 +28,11 @@ const CategoryThumbnail = props => {
   )
 }
 
-CategoryThumbnail.propTypes = {
+ThumbnailNavigationItem.propTypes = {
   image: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  parent: PropTypes.object
 }
 
-export default CategoryThumbnail
+export default ThumbnailNavigationItem

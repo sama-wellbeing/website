@@ -3,6 +3,7 @@ import App from "../../components/app/app"
 import { graphql } from "gatsby"
 import Wrapper from '../../components/wrapper/wrapper';
 import PageHeader from '../../components/page-header/page-header';
+import ThumbnailNavigation from '../../components/thumbnail-navigation/thumbnail-navigation';
 
 const PostsTemplate = ({ data }) => {
   const content = data.contentfulPosts;
@@ -16,7 +17,9 @@ const PostsTemplate = ({ data }) => {
         title={content.title}
         hero={content.hero}
       />
-      <Wrapper></Wrapper>
+      <Wrapper>
+        <ThumbnailNavigation thumbnails={content.categories} />
+      </Wrapper>
     </App>
   )
 };
@@ -41,6 +44,11 @@ export const pageQuery = graphql`
       categories {
         title
         slug
+        teaserImage {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
         contentfulparent {
           slug
           title

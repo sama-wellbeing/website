@@ -62,14 +62,24 @@ export const pageQuery = graphql`
             title
             tag
             imagePosition
-            image {
-              fluid(maxWidth: 800, quality: 90) {
-                ...GatsbyContentfulFluid_withWebp
+              image {
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
               }
-            }
             content {
               childMarkdownRemark {
                 html
+              }
+            }
+            internal {
+              type
+            }
+          }
+          ... on ContentfulFcGalleryRow {
+            images {
+              fluid(maxWidth: 800, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             internal {

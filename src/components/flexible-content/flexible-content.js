@@ -5,6 +5,7 @@ import classnames from "classnames"
 import { FC_KEY, FC_TEMPLATES } from '../../constants/flexible-content';
 import CenteredContent from './centered-content/centered-content';
 import SingleImage from "./single-image/single-image";
+import GalleryRow from "./gallery-row/gallery-row";
 
 const Content = (props) => {
   const { content } = props;
@@ -13,7 +14,7 @@ const Content = (props) => {
   _.each(content, (item, key) => {
     const type = item.internal.type;
     
-    console.log(type);
+    // console.log(type);
 
     switch (type) {
       case `${FC_KEY}${FC_TEMPLATES.CENTERED_TEXT}`:
@@ -21,6 +22,9 @@ const Content = (props) => {
         break
       case `${FC_KEY}${FC_TEMPLATES.SINGLE_IMAGE}`:
         items.push(<SingleImage key={key} content={item} />)
+        break
+      case `${FC_KEY}${FC_TEMPLATES.GALLERY_ROW}`:
+        items.push(<GalleryRow key={key} images={item.images} />)
         break
       default:
       // code block

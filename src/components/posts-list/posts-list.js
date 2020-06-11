@@ -22,26 +22,28 @@ const PostsLists = (props) => {
   return (
     <div className={styles.list}>
       {posts && posts.map((item, key) => {
+        const content = "node" in item ? item.node : item;
+                
         if (isFullWidth(key)) {
           return (
             <PostsListItemFullWidth
               key={key}
-              content={item.teaserText.childMarkdownRemark.excerpt}
-              title={item.title}
-              slug={buildPostSlug(item)}
-              image={item.teaserImage}
-              category={getCornerStoneContent(item)}
+              content={content.teaserText.childMarkdownRemark.excerpt}
+              title={content.title}
+              slug={buildPostSlug(content)}
+              image={content.teaserImage}
+              category={getCornerStoneContent(content)}
             />
           )
         } else {
           return (
             <PostsListItem
               key={key}
-              content={item.teaserText.childMarkdownRemark.excerpt}
-              title={item.title}
-              slug={buildPostSlug(item)}
-              image={item.teaserImage}
-              category={getCornerStoneContent(item)}
+              content={content.teaserText.childMarkdownRemark.excerpt}
+              title={content.title}
+              slug={buildPostSlug(content)}
+              image={content.teaserImage}
+              category={getCornerStoneContent(content)}
               imageIsRight={imageIsRight(key)}
             />
           )

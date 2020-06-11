@@ -6,11 +6,12 @@ import PageHeader from '../../components/page-header/page-header';
 import PostsLists from '../../components/posts-list/posts-list';
 
 const CategoryTemplate = ({ data }) => {
+  const posts = data.posts.edges;
   const content = data.content;
   const categories = data.categories;
   const menuItems = categories.categories;
-  
-  return (
+
+  return ( 
     <App theme={categories.theme}>
       <PageHeader
         menuItems={menuItems}
@@ -19,7 +20,7 @@ const CategoryTemplate = ({ data }) => {
         hero={content.hero}
       />
       <Wrapper>
-        <PostsLists posts={content.post} />
+        <PostsLists posts={posts} />
       </Wrapper>
     </App>
   )
@@ -29,30 +30,34 @@ export default CategoryTemplate;
 
 export const pageQuery = graphql`
     query CategoryQuery($id: String!, $parentId: String!) {
-      content: contentfulPostCategory(id: {eq: $id}) {
-        title
-        post {
-          slug
-          title
-          teaserText {
-            childMarkdownRemark {
-              excerpt(truncate: true, pruneLength: 350)
-            }
-          }
-          teaserImage {
-            fluid(maxWidth: 1000, quality: 90) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          contentfulparent {
+      posts: allContentfulPost(filter: {contentfulparent: {id: {eq: $id}}}) {
+        edges {
+          node {
             slug
+            title
+            teaserText {
+              childMarkdownRemark {
+                excerpt(truncate: true, pruneLength: 350)
+              }
+            }
+            teaserImage {
+              fluid(maxWidth: 1000, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
             contentfulparent {
-              title
-              theme
               slug
+              contentfulparent {
+                title
+                theme
+                slug
+              }
             }
           }
         }
+      }
+      content: contentfulPostCategory(id: {eq: $id}) {
+        title
       }
       categories: contentfulPosts(id: {eq: $parentId}) {
         title

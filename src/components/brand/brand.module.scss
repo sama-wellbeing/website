@@ -1,7 +1,13 @@
+@import "../../scss/variables";
+
 .brand {
-  max-width: 220px;
+  max-width: 150px;
   display: block;
   margin: 0 auto;
+
+  @media (min-width: $screenMd) {
+    max-width: 220px;
+  }
 }
 
 .brandInner {

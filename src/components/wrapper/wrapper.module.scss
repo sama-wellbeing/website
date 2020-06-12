@@ -3,5 +3,15 @@
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 $gridMarginLarge;
+  padding: 0 $gridMarginSmall;
+
+  @media (min-width: $screenMd) {
+    padding-left: $gridMarginMedium;
+    padding-right: $gridMarginMedium;
+  }
+
+  @media (min-width: $screenLg) {
+    padding-left: $gridMarginLarge;
+    padding-right: $gridMarginLarge;
+  }
 }

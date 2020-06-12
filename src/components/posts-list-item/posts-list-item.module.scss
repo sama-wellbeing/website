@@ -8,21 +8,40 @@ $contentGridMargin: $gridMarginMedium / 2;
 $contentMargin: $gridMarginMedium;
 
 .row {
-  margin-bottom: $gridMarginLarge;
+  margin-bottom: $gridMarginMedium;
+
+  @media (max-width: $screenXsMax) {
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: $screenMd) {
+    margin-bottom: $gridMarginLarge;
+  }
 }
 
 .thumbnail-container {
   flex: 1;
+
+  @media (max-width: $screenXsMax) {
+    flex: 0 0 100%; /* fg: 0, fs: 0, fb: 100% */
+  }
 }
 
 .thumbnail-container-is-right {
-  order: 2;
+  @media (min-width: $screenMd) {
+    order: 2;
+  }
 }
 
 .thumbnail {
-  padding: 0 0 $borderMargin $borderMargin;
+  padding-top: $gridMarginSmall;
   position: relative;
-  min-width: 480px;
+
+  @media (min-width: $screenMd) {
+    padding: $borderMargin;
+    min-width: 480px;
+    padding: 0 0 $borderMargin $borderMargin;
+  }
 
   &:before,
   &:after {
@@ -32,21 +51,32 @@ $contentMargin: $gridMarginMedium;
 
   &:before {
     left: 0;
-    right: $borderMargin;
-    top: $borderMargin;
+    right: 0;
+    top: 0;
     bottom: 0;
     background: $themeGradient;
     background-size: 600% 600%;
     animation: gradientAnimation 3s ease-in-out infinite;
+
+    @media (min-width: $screenMd) {
+      right: $borderMargin;
+      top: $borderMargin;
+    }
   }
 
   &:after {
-    left: 10px;
-    right: ($borderMargin + $borderWidth);
-    top: ($borderMargin + $borderWidth);
-    bottom: $borderWidth;
-    background-color: #fff;
-    z-index: 1;
+    display: none;
+    @media (min-width: $screenMd) {
+      display: block;
+      left: $borderWidth;
+      right: $borderWidth;
+      top: $borderWidth;
+      bottom: $borderWidth;
+      background-color: #fff;
+      z-index: 1;
+      right: ($borderMargin + $borderWidth);
+      top: ($borderMargin + $borderWidth);
+    }
   }
 }
 
@@ -76,17 +106,23 @@ $contentMargin: $gridMarginMedium;
 }
 
 .thumbnail-is-right {
-  padding-right: $borderMargin;
-  padding-left: 0;
+  @media (min-width: $screenMd) {
+    padding-right: $borderMargin;
+    padding-left: 0;
+  }
 
   &:before {
-    right:  0;
-    left: $borderMargin;
+    @media (min-width: $screenMd) {
+      right:  0;
+      left: $borderMargin;
+    }
   }
 
   &:after {
-    left: ($borderMargin + $borderWidth);
-    right: $borderWidth;
+    @media (min-width: $screenMd) {
+      left: ($borderMargin + $borderWidth);
+      right: $borderWidth;
+    }
   }
 }
 
@@ -97,15 +133,39 @@ $contentMargin: $gridMarginMedium;
 
 .content-col {
   flex: 2;
-  padding-top: $gridMarginLarge;
   position: relative;
   z-index: 3;
+
+  @media (min-width: $screenMd) {
+    padding-top: $gridMarginLarge;
+  }
 }
 
 .title-container {
   position: relative;
-  left: -$gridMarginMedium * 4;
   margin-bottom: $contentMargin;
+  display: none;
+
+  @media (min-width: $screenMd) {
+    display: block;
+    left: -$gridMarginMedium * 4;
+  }
+}
+
+.title-container-mobile {
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  padding: $gridMarginSmall;
+
+  @media (min-width: $screenMd) {
+    display: none;
+  }
 }
 
 .title-is-left {
@@ -115,6 +175,10 @@ $contentMargin: $gridMarginMedium;
 
 .title {
   margin-bottom: 0;
+  
+  @media (max-width: $screenXsMax) {
+    letter-spacing: 0px;
+  }
 }
 
 .category {
@@ -125,7 +189,11 @@ $contentMargin: $gridMarginMedium;
 
 .content {
   background-color: $greyLight;
-  padding: $contentMargin;
+  padding: $gridMarginSmall * 2;
+
+  @media (min-width: $screenMd) {
+    padding: $contentMargin;
+  }
 }
 
 .content-is-left {

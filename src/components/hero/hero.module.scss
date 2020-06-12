@@ -3,19 +3,31 @@
 .hero {
   display: flex;
   position: relative;
-  min-height: 500px;
-  height: calc(100vh - 254px);
+  height: calc(100vh - 225px);
   justify-content: center;
   align-items: center;
   margin-bottom: $gridMarginLarge;
+
+  @media (max-width: $screenXsMax) {
+    padding-left: $gridMarginSmall;
+    padding-right: $gridMarginSmall;
+  }
+
+  @media (min-width: $screenMd) {
+    min-height: 500px;
+  }
 }
 
 .small {
-  height: calc(100vh - 343px);
+  @media (min-width: $screenMd) {
+    height: calc(100vh - 343px);
+  }
 }
 
 .medium {
-  height: calc(100vh - 500px);
+  @media (min-width: $screenMd) {
+    height: calc(100vh - 500px);
+  }
 }
 
 .background {
@@ -33,8 +45,12 @@
   display: inline-block;
   text-align: center;
   position: relative;
-  padding: 40px 100px;
+  padding: 30px 20px;
   background-color: #fff;
+
+  @media (min-width: $screenMd) {
+    padding: 40px 100px;
+  }
 }
 
 .title {

@@ -49,7 +49,18 @@ const Header = (props) => {
   return (
     <header className={headerClass}>
       <Wrapper>
-        <Menu menuItems={menuItems} theme={MenuKeys.PRIMARY} inline/>
+        <a role="button" onClick={() => {}} className={styles.burgerContainer}>
+          <span className={styles.burgerTitle}>MENU</span>
+          <span className={styles.burger}>
+            <i className={styles.burgerIcon}>menu</i>
+          </span>
+        </a>
+        <Menu
+          className={styles.menu}
+          menuItems={menuItems}
+          theme={MenuKeys.PRIMARY}
+          inline
+        />
         <div className={headerClassHeight}>
           <Brand />
         </div>

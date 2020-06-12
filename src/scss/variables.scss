@@ -39,3 +39,15 @@ $fontSansSerif:  "Lora", "Georgia", "Montserrat", "Helvetica Neue", "sans-serif"
 // Post list items
 $postListItemborderMargin: 30px;
 $postListItemborderWidth: 10px;
+
+$screenSm: 576px;
+$screenMd: 768px;
+$screenLg: 992px;
+$screenXl: 1200px;
+
+$screenXsMax: $screenSm - 1;
+$screenSmMax: $screenMd - 1;
+$screenMdMax: $screenLg - 1;
+$screenLgMax: $screenXl - 1;
+
+$mobileGridMarginBottom: $gridMarginSmall;

@@ -3,9 +3,15 @@
 @import "../../scss/variables";
 
 .row {
-  padding: $postListItemborderMargin;
-  margin-bottom: $gridMarginLarge;
+  // padding: $postListItemborderMargin;
+  padding-top: $gridMarginSmall;
+  margin-bottom: $gridMarginMedium;
   position: relative;
+
+  @media (min-width: $screenMd) {
+    padding: $postListItemborderMargin;
+    margin-bottom: $gridMarginLarge;
+  }
 
   &:before,
   &:after {
@@ -24,15 +30,16 @@
   }
 
   &:after {
-    left: $postListItemborderWidth;
-    right: $postListItemborderWidth;
-    top: $postListItemborderWidth;
-    bottom: $postListItemborderWidth;
-    background-color: #fff;
-    z-index: 1;
+    @media (min-width: $screenMd) {
+      left: $postListItemborderWidth;
+      right: $postListItemborderWidth;
+      top: $postListItemborderWidth;
+      bottom: $postListItemborderWidth;
+      background-color: #fff;
+      z-index: 1;
+    }
   }
 }
-
 
 .theme-light-blue:before {
   background: $themeGradientLightBlue;
@@ -61,8 +68,12 @@
 
 .content-container {
   position: relative;
-  padding: $gridMarginLarge;
+  padding: $gridMarginLarge 0;
   z-index: 2;
+
+  @media (min-width: $screenMd) {
+    padding: $gridMarginMedium;
+  }
 }
 
 .background {
@@ -80,9 +91,14 @@
 .content {
   margin: 0 auto;
   background-color: #fff;
-  max-width: 60%;
+  max-width: 80%;
   text-align: center;
-  padding: $gridMarginMedium;
+  padding: $gridMarginSmall;
+
+  @media (min-width: $screenMd) {
+    max-width: 70%;
+    padding: $gridMarginMedium;
+  }
 }
 
 .category {

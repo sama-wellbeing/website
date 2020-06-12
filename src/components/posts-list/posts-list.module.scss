@@ -1,5 +1,9 @@
 @import "../../scss/variables";
 
 .list {
-  margin: $gridMarginLarge 0;
+  margin: $gridMarginMedium 0;
+
+  @media (min-width: $screenMd) {
+    margin-bottom: $gridMarginLarge;
+  }
 }

@@ -6,14 +6,19 @@ import styles from "./thumbnail-navigation-item.module.scss"
 import BackgroundImage from "gatsby-background-image"
 import { colours } from '../../constants/theme'
 import Col from "../grid/col/col"
+import classnames from "classnames"
 
 const ThumbnailNavigationItem = props => {
-  const {slug, title, image, parent } = props;
+  const {slug, title, image, parent, isFirst } = props;
     
   const freshSlug = !_.isUndefined(parent) ? `/${parent.slug}/${slug}/` : `/${slug}/`
 
+  const containerClass = classnames(styles.thumbnailContainer, {
+    [styles.isFirst]: isFirst,
+  })
+
   return (
-    <Col className={styles.thumbnailContainer}>
+    <Col className={containerClass}>
       <Link to={freshSlug} className={styles.thumbnail}>
         <BackgroundImage
           className={styles.background}
@@ -32,7 +37,8 @@ ThumbnailNavigationItem.propTypes = {
   image: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  parent: PropTypes.object
+  parent: PropTypes.object,
+  isFirst: PropTypes.bool
 }
 
 export default ThumbnailNavigationItem

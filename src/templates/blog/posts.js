@@ -32,67 +32,67 @@ const PostsTemplate = ({ data }) => {
 export default PostsTemplate;
 
 export const pageQuery = graphql`
-         query PostsQuery($id: String!) {
-           posts: allContentfulPost(
-             filter: {
-               contentfulparent: {
-                 contentfulparent: {
-                   id: { eq: $id }
-                 }
-               }
-             }
-           ) {
-             edges {
-               node {
-                 slug
-                 title
-                 teaserText {
-                   childMarkdownRemark {
-                     excerpt(truncate: true, pruneLength: 350)
-                   }
-                 }
-                 teaserImage {
-                   fluid(maxWidth: 1000, quality: 90) {
-                     ...GatsbyContentfulFluid_withWebp
-                   }
-                 }
-                 contentfulparent {
-                   slug
-                   contentfulparent {
-                     title
-                     theme
-                     slug
-                   }
-                 }
-               }
-             }
-           }
-           content: contentfulPosts(id: { eq: $id }) {
-             title
-             slug
-             theme
-             hero {
-               subtitle
-               title
-               image {
-                 fluid(maxWidth: 3000, quality: 90) {
-                   ...GatsbyContentfulFluid_withWebp
-                 }
-               }
-             }
-             categories {
-               title
-               slug
-               teaserImage {
-                 fluid(maxWidth: 1000, quality: 90) {
-                   ...GatsbyContentfulFluid_withWebp
-                 }
-               }
-               contentfulparent {
-                 slug
-                 title
-               }
-             }
-           }
-         }
-       `
+  query PostsQuery($id: String!) {
+    posts: allContentfulPost(
+      filter: {
+        contentfulparent: {
+          contentfulparent: {
+            id: { eq: $id }
+          }
+        }
+      }
+    ) {
+      edges {
+        node {
+          slug
+          title
+          teaserText {
+            childMarkdownRemark {
+              excerpt(truncate: true, pruneLength: 350)
+            }
+          }
+          teaserImage {
+            fluid(maxWidth: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          contentfulparent {
+            slug
+            contentfulparent {
+              title
+              theme
+              slug
+            }
+          }
+        }
+      }
+    }
+    content: contentfulPosts(id: { eq: $id }) {
+      title
+      slug
+      theme
+      hero {
+        subtitle
+        title
+        image {
+          fluid(maxWidth: 3000, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+      categories {
+        title
+        slug
+        teaserImage {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+        contentfulparent {
+          slug
+          title
+        }
+      }
+    }
+  }
+`

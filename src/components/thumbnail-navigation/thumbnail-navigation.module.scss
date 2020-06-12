@@ -1,5 +1,13 @@
 @import "../../scss/variables";
 
 .row {
-  margin: $gridMarginLarge (-$gridMarginExtraSmall);
+  margin: $gridMarginMedium (-$gridMarginExtraSmall);
+
+  @media (max-width: $screenXsMax) {
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: $screenMd) {
+    margin: $gridMarginLarge (-$gridMarginExtraSmall);
+  }
 }

@@ -36,7 +36,18 @@ const PostsListItem = (props) => {
     <Row className={styles.row} size={GridSize.MEDIUM}>
       <Col className={thumbanilContainerClass} size={GridSize.MEDIUM}>
         <div className={thumbnailClass}>
-          <Image className={styles.image} fluid={image.fluid}/>
+          <Image className={styles.image} fluid={image.fluid} />
+
+          <div className={styles.titleContainerMobile}>
+            <Title className={styles.category} type={"h6"}>
+              <Link className={categoryThemeClass} to={`/${category.slug}/`}>
+                {category.title}
+              </Link>
+            </Title>
+            <Title className={styles.title} type={"h3"}>
+              {title}
+            </Title>
+          </div>
         </div>
       </Col>
       <Col className={contentClass} size={GridSize.MEDIUM}>

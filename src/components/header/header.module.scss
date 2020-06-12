@@ -3,6 +3,9 @@
 
 @include gradientAnimation;
 
+$burgerBorder: 1px;
+$burgerBarPosition: -7px;
+
 .header {
   position: relative;
   padding-top: 0.8rem;
@@ -32,9 +35,20 @@
   padding: $headerMargin 0;
 }
 
+.menu {
+  @media (max-width: $screenXsMax) {
+    display: none;
+  }
+}
+
 .large {
-  padding-top: $headerMarginLg;
-  padding-bottom: $headerMarginLg;
+  padding-top: $headerMargin;
+  padding-bottom: $headerMargin;
+
+  @media (min-width: $screenMd) {
+    padding-top: $headerMarginLg;
+    padding-bottom: $headerMarginLg;
+  }
 }
 
 .strapline {
@@ -77,4 +91,61 @@
 .theme-green:before {
   background: $themeGradientGreen;
   background-size: 600% 600%;
+}
+
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.burger-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-icon {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: $burgerBorder;
+  background: #fff;
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  text-indent: -9999px;
+  vertical-align: middle;
+
+  &:before,
+  &:after {
+    content: '';
+    width: 100%;
+    height: $burgerBorder;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  }
+
+  &:before {
+    top: $burgerBarPosition;
+  }
+
+  &:after {
+    bottom: $burgerBarPosition;
+  }
+}
+
+.burger-title {
+  color: #fff;
+  margin-right: 10px;
+  letter-spacing: 4px;
 }

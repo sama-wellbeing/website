@@ -13,6 +13,7 @@ const ThumbnailNavigation = (props) => {
       {thumbnails.map((item, key) => (
         <ThumbnailNavigationItem
           key={key}
+          isFirst={key === 0}
           slug={item.slug}
           title={item.title}
           image={item.teaserImage}

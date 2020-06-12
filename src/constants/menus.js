@@ -5,4 +5,5 @@ export const MenuKeys = {
   PAGE_MENU: "pageMenu",
   CORNERSTONE_MENU: "cornerstoneMenu",
   BOTANYBLEND: "botanyblend",
+  MOBILE: "mobile"
 }

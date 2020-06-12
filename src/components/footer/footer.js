@@ -114,8 +114,8 @@ const Footer = ({ theme }) => {
   return (
     <div className={footerClass}>
       <Wrapper>
-        <Row size={gridSize}>
-          <Col size={gridSize}>
+        <Row size={gridSize} className={styles.row}>
+          <Col className={styles.col} size={gridSize}>
             <Title className={styles.title} type={"h4"}>
               Sama Wellbeing
             </Title>
@@ -126,7 +126,7 @@ const Footer = ({ theme }) => {
             />
           </Col>
           {menus[MenuKeys.CORNERSTONE_MENU].map((item, key) => (
-            <Col key={key} size={gridSize}>
+            <Col className={styles.col} key={key} size={gridSize}>
               <Title className={styles.title} type={"h4"}>
                 <Link to={`/${item.slug}/`}>{item.title}</Link>
               </Title>

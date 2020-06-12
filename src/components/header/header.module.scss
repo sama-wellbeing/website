@@ -45,6 +45,7 @@ $burgerBarPosition: -7px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 
   @media (min-width: $screenMd) {
     display: none;
@@ -119,7 +120,7 @@ $burgerBarPosition: -7px;
   display: inline-block;
   width: 100%;
   height: $burgerBorder;
-  background: #fff;
+  background: #000;
   -webkit-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
@@ -131,7 +132,7 @@ $burgerBarPosition: -7px;
     content: '';
     width: 100%;
     height: $burgerBorder;
-    background: #fff;
+    background: #000;
     position: absolute;
     left: 0;
     -webkit-transition: all .2s ease-out;
@@ -149,7 +150,7 @@ $burgerBarPosition: -7px;
 }
 
 .burger-title {
-  color: #fff;
+  color: #000;
   margin-right: 10px;
   letter-spacing: 4px;
 }

@@ -5,7 +5,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 a {
   color: $blue;
   text-decoration: none;
+}
+
+.tray-is-active {
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
 }

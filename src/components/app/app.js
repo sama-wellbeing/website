@@ -5,16 +5,19 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 import _ from "lodash"
-import React from "react"
+import React, { useState } from "react"
 import * as PropTypes from "prop-types"
-
+import classnames from "classnames"
 import Header from "../header/header"
 import "./app.scss"
+import styles from "./app.scss"
 import Footer from "../footer/footer"
 import SEO from '../seo';
+import Tray from "../tray.js/tray"
 
 const App = (props) => {
   const { children, headerSize, theme, seo } = props;
+  const [trayIsVisible, setTrayIsVisible] = useState(false);
   let seoContianer;
 
   if (_.isUndefined(seo)) {
@@ -26,12 +29,26 @@ const App = (props) => {
     seoContianer = <SEO title={title} description={description} />
   }
 
+  const bodyClass = classnames({
+    [styles.trayIsActive]: trayIsVisible,
+  })
+
   return (
     <>
       {seoContianer}
-      <Header size={headerSize} theme={theme} />
-      <main>{children}</main>
-      <Footer theme={theme} />
+      <div class={bodyClass}>
+        <Tray
+          setTrayIsVisible={setTrayIsVisible}
+          trayIsVisible={trayIsVisible}
+        />
+        <Header
+          setTrayIsVisible={setTrayIsVisible}
+          size={headerSize}
+          theme={theme}
+        />
+        <main>{children}</main>
+        <Footer theme={theme} />
+      </div>
     </>
   )
 }

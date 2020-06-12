@@ -55,8 +55,19 @@
   background-size: 600% 600%;
 }
 
+.row {
+   @media (max-width: $screenXsMax) {
+     flex-wrap: wrap;
+   }
+}
+
 .col {
-  flex: 1;
+  flex: 0 0 50% !important; /* fg: 0, fs: 0, fb: 100% */
+  margin-bottom: $gridMarginMedium;
+
+  @media (min-width: $screenMd) {
+    flex: 1 !important;
+  }
 }
 
 .title {
@@ -74,5 +85,7 @@
 }
 
 .botanyblend {
-  margin-top: $gridMarginMedium;
+  @media (min-width: $screenMd) {
+    margin-top: $gridMarginMedium;
+  }
 }

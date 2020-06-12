@@ -7,7 +7,6 @@ import Row from '../grid/row/row';
 const ThumbnailNavigation = (props) => {
   const { thumbnails } = props
 
-  console.log(thumbnails);
   return (
     <Row className={styles.row}>
       {thumbnails.map((item, key) => (

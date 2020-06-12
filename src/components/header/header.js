@@ -49,7 +49,7 @@ const Header = (props) => {
   return (
     <header className={headerClass}>
       <Wrapper>
-        <a role="button" onClick={() => {}} className={styles.burgerContainer}>
+        <a role="button" onClick={() => {}} className={styles.menuMobile}>
           <span className={styles.burgerTitle}>MENU</span>
           <span className={styles.burger}>
             <i className={styles.burgerIcon}>menu</i>

@@ -41,6 +41,16 @@ $burgerBarPosition: -7px;
   }
 }
 
+.menu-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $screenMd) {
+    display: none;
+  }
+}
+
 .large {
   padding-top: $headerMargin;
   padding-bottom: $headerMargin;
@@ -102,12 +112,6 @@ $burgerBarPosition: -7px;
   height: 15px;
   cursor: pointer;
   text-decoration: none;
-}
-
-.burger-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .burger-icon {

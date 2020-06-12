@@ -43,6 +43,7 @@ const App = (props) => {
         />
         <Header
           setTrayIsVisible={setTrayIsVisible}
+          trayIsVisible={trayIsVisible}
           size={headerSize}
           theme={theme}
         />

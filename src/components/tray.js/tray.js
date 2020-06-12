@@ -40,6 +40,9 @@ const Tray = (props) => {
   const trayContainerClass = classnames(styles.trayContainer, {
     [styles.trayContainerIsActive]: trayIsVisible,
   })
+  const closeClass = classnames(styles.close, {
+    [styles.closeIsActive]: trayIsVisible,
+  })
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
   return (
@@ -56,7 +59,7 @@ const Tray = (props) => {
         onClick={() => setTrayIsVisible(false)}
         onKeyDown={() => setTrayIsVisible(false)}
       ></div>
-      <button className={styles.close} onClick={() => setTrayIsVisible(false)}>
+      <button className={closeClass} onClick={() => setTrayIsVisible(false)}>
         Close
       </button>
     </div>

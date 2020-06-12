@@ -11,7 +11,7 @@ import styles from "./header.module.scss"
 import { MenuKeys } from '../../constants/menus';
 
 const Header = (props) => {
-  const { size, theme, setTrayIsVisible } = props;
+  const { size, theme, setTrayIsVisible, trayIsVisible } = props
   const themeClean = theme ? theme.replace(/\s/g, "") : theme;
 
   const data = useStaticQuery(
@@ -44,14 +44,21 @@ const Header = (props) => {
     [styles[size]]: size
   })
 
+  const burgerClass = classnames(styles.burger, {
+    [styles.burgerIsActive]: trayIsVisible
+  });
+
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
   return (
     <header className={headerClass}>
       <Wrapper>
-        <button onClick={() => setTrayIsVisible(true)} className={styles.menuMobile}>
+        <button
+          onClick={() => setTrayIsVisible(true)}
+          className={styles.menuMobile}
+        >
           <span className={styles.burgerTitle}>MENU</span>
-          <span className={styles.burger}>
+          <span className={burgerClass}>
             <i className={styles.burgerIcon}>menu</i>
           </span>
         </button>
@@ -71,7 +78,8 @@ const Header = (props) => {
 
 Header.propTypes = {
   size: PropTypes.string,
-  setTrayIsVisible: PropTypes.func
+  setTrayIsVisible: PropTypes.func,
+  trayIsVisible: PropTypes.bool
 }
 
 Header.defaultProps = {

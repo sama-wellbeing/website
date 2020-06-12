@@ -61,4 +61,10 @@
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
+  transform: translate(0, 100%);
+  transition: transform .5s ease-in-out;
+}
+
+.close-is-active {
+  transform: translate(0, 0);
 }

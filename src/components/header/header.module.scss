@@ -104,7 +104,6 @@ $burgerBarPosition: -7px;
   background-size: 600% 600%;
 }
 
-
 .burger {
   display: flex;
   align-items: center;
@@ -121,8 +120,6 @@ $burgerBarPosition: -7px;
   width: 100%;
   height: $burgerBorder;
   background: #000;
-  -webkit-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
   text-indent: -9999px;
   vertical-align: middle;
@@ -146,6 +143,21 @@ $burgerBarPosition: -7px;
 
   &:after {
     bottom: $burgerBarPosition;
+  }
+}
+
+.burger-is-active {
+  i {
+    background: transparent;
+  }
+  i:before {
+    top: 0;
+    transform: rotateZ(45deg);
+  }
+
+  i:after {
+    bottom: 0;
+    transform: rotateZ(-45deg);
   }
 }
 

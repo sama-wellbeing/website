@@ -10,8 +10,7 @@ const PostsTemplate = ({ data }) => {
   const content = data.content;
   const posts = data.posts.edges;
   const theme = content.theme ? content.theme : null;
-
-  console.log(data);
+  
   return (
     <App theme={theme}>
       <PageHeader

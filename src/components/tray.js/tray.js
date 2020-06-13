@@ -9,7 +9,6 @@ import { MenuKeys } from '../../constants/menus';
 
 const Tray = (props) => {
   const { trayIsVisible, setTrayIsVisible } = props;
-  console.log(setTrayIsVisible);
   const data = useStaticQuery(
     graphql`
       query {

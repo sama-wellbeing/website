@@ -1,5 +1,6 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
+@import "../../scss/theme";
 
 @include gradientAnimation;
 
@@ -20,8 +21,12 @@ $burgerBarPosition: -7px;
     top: 0;
     bottom: 0;
     z-index: -1;
-    background-size: 600% 600%;
+    background-size: 200% 200%;
     animation: gradientAnimation 10s ease-in-out infinite;
+
+    @media (min-width: $screenMd) {
+      background-size: 600% 600%;
+    }
   }
 }
 
@@ -72,36 +77,6 @@ $burgerBarPosition: -7px;
   font-size: 12px;
   margin-top: 10px;
   margin-bottom: 0;
-}
-
-.theme-default:before {
-  background: $themeGradient;
-  background-size: 600% 600%;
-}
-
-.theme-light-blue:before {
-  background: $themeGradientLightBlue;
-  background-size: 600% 600%;
-}
-
-.theme-blue:before {
-  background: $themeGradientBlue;
-  background-size: 600% 600%;
-}
-
-.theme-red:before {
-  background: $themeGradientRed;
-  background-size: 600% 600%;
-}
-
-.theme-lilac:before {
-  background: $themeGradientLilac;
-  background-size: 600% 600%;
-}
-
-.theme-green:before {
-  background: $themeGradientGreen;
-  background-size: 600% 600%;
 }
 
 .burger {

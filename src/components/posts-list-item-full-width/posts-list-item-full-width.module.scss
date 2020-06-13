@@ -1,6 +1,8 @@
+@import "../../scss/variables";
+@import "../../scss/theme";
 @import "../../scss/mixins";
 @include gradientAnimation;
-@import "../../scss/variables";
+
 
 .row {
   // padding: $postListItemborderMargin;

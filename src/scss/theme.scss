@@ -1,0 +1,55 @@
+@import "../../scss/variables";
+
+.theme-default:before {
+  background: $themeGradient;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}
+
+.theme-light-blue:before {
+  background: $themeGradientLightBlue;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}
+
+.theme-blue:before {
+  background: $themeGradientBlue;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}
+
+.theme-red:before {
+  background: $themeGradientRed;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}
+
+.theme-lilac:before {
+  background: $themeGradientLilac;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}
+
+.theme-green:before {
+  background: $themeGradientGreen;
+  background-size: 200% 200%;
+
+  @media (min-width: $screenMd) {
+    background-size: 600% 600%;
+  }
+}

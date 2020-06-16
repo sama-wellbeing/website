@@ -1,21 +1,21 @@
-import { TOGGLE_DARKMODE } from "./ui-action"
+import { TOGGLE_TRAY } from './ui-action';
 import { createReducer } from "@reduxjs/toolkit"
 
 export const initialUiState = {
   hasHero: undefined,
-  isDarkMode: false,
+  tray: false,
 };
 
-const toggleDarkMode = (state = initialUiState, action) => {
+const toggleTray = (state = initialUiState, action) => {
   switch (action.type) {
-    case TOGGLE_DARKMODE:
-      return { ...state, isDarkMode: action.isDarkMode };
+    case TOGGLE_TRAY:
+      return { ...state, tray: action.isVisible }
+    
     default:
-      return state;
+      return state
   }
 };
 
-
 export const uiReducer = createReducer(initialUiState, {
-  [TOGGLE_DARKMODE]: toggleDarkMode,
+  [TOGGLE_TRAY]: toggleTray,
 });

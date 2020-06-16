@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 import _ from "lodash"
-import React, { useState } from "react"
-import * as PropTypes from "prop-types"
+import React from "react"
+import { connect } from "react-redux"
+import PropTypes from "prop-types"
 import classnames from "classnames"
 import Header from "../header/header"
 import "./app.scss"
@@ -14,10 +15,10 @@ import styles from "./app.scss"
 import Footer from "../footer/footer"
 import SEO from '../seo';
 import Tray from "../tray.js/tray"
+import { isTrayActive } from "../../state/ui/ui-selectors"
 
 const App = (props) => {
-  const { children, headerSize, theme, seo } = props;
-  const [trayIsVisible, setTrayIsVisible] = useState(false);
+  const { children, headerSize, theme, seo, trayIsActive } = props
   let seoContianer;
 
   if (_.isUndefined(seo)) {
@@ -30,23 +31,15 @@ const App = (props) => {
   }
 
   const bodyClass = classnames({
-    [styles.trayIsActive]: trayIsVisible,
+    [styles.trayIsActive]: trayIsActive,
   })
 
   return (
     <>
       {seoContianer}
-      <div class={bodyClass}>
-        <Tray
-          setTrayIsVisible={setTrayIsVisible}
-          trayIsVisible={trayIsVisible}
-        />
-        <Header
-          setTrayIsVisible={setTrayIsVisible}
-          trayIsVisible={trayIsVisible}
-          size={headerSize}
-          theme={theme}
-        />
+      <div className={bodyClass}>
+        <Tray />
+        <Header size={headerSize} theme={theme}/>
         <main>{children}</main>
         <Footer theme={theme} />
       </div>
@@ -57,7 +50,10 @@ const App = (props) => {
 App.propTypes = {
   children: PropTypes.node.isRequired,
   headerBackgroundFill: PropTypes.string,
-  seo: PropTypes.object
+  seo: PropTypes.object,
 }
 
-export default App
+
+export default connect(state => ({
+  trayIsActive: isTrayActive(state),
+}),null)(App)

@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { connect } from "react-redux"
 import classnames from 'classnames'
 
 import Menu from "../menu/menu"
@@ -9,9 +10,16 @@ import Wrapper from "../wrapper/wrapper"
 
 import styles from "./header.module.scss"
 import { MenuKeys } from '../../constants/menus';
+import { isTrayActive } from "../../state/ui/ui-selectors"
+import { toggleTray } from "../../state/ui/ui-action"
 
 const Header = (props) => {
-  const { size, theme, setTrayIsVisible, trayIsVisible } = props
+  const {
+    size,
+    theme,
+    trayIsActive,
+    dispatch
+  } = props
   const themeClean = theme ? theme.replace(/\s/g, "") : theme;
 
   const data = useStaticQuery(
@@ -45,7 +53,7 @@ const Header = (props) => {
   })
 
   const burgerClass = classnames(styles.burger, {
-    [styles.burgerIsActive]: trayIsVisible
+    [styles.burgerIsActive]: trayIsActive
   });
 
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
@@ -54,7 +62,7 @@ const Header = (props) => {
     <header className={headerClass}>
       <Wrapper>
         <button
-          onClick={() => setTrayIsVisible(true)}
+          onClick={() => dispatch(toggleTray(true))}
           className={styles.menuMobile}
         >
           <span className={styles.burgerTitle}>MENU</span>
@@ -87,4 +95,6 @@ Header.defaultProps = {
   theme: 'Default'
 }
 
-export default Header
+export default connect(state => ({
+  trayIsActive: isTrayActive(state)
+}), null)(Header);

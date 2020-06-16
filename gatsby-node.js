@@ -3,6 +3,7 @@ const path = require('path');
 
 const { buildPages } = require(path.resolve(__dirname, "lib/pages"));
 const { buildBlog } = require(path.resolve(__dirname, "lib/blog"));
+const { buildAuthors } = require(path.resolve(__dirname, "lib/authors"));
 const { GatsbyNodeQuery } = require(path.resolve(__dirname, "lib/queries"));
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -33,6 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         buildPages(createPage, result.data);
         buildBlog(createPage, result.data);
+        buildAuthors(createPage, result.data);
 
         // buildShop(createPage, result.data);
       })

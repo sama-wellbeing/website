@@ -1,14 +1,16 @@
 import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
+import { connect } from 'react-redux';
 import React from "react"
 import classnames from 'classnames'
 
 import Menu from "../menu/menu"
 import styles from "./tray.module.scss"
 import { MenuKeys } from '../../constants/menus';
+import { toggleTray } from "../../state/ui/ui-action";
+import { isTrayActive } from "../../state/ui/ui-selectors"
 
 const Tray = (props) => {
-  const { trayIsVisible, setTrayIsVisible } = props;
+  const { trayIsActive, dispatch } = props;
   const data = useStaticQuery(
     graphql`
       query {
@@ -31,16 +33,16 @@ const Tray = (props) => {
   )
 
   const trayClass = classnames(styles.tray, {
-    [styles.trayIsActive]: trayIsVisible,
+    [styles.trayIsActive]: trayIsActive,
   })
   const trayUnderlayClass = classnames(styles.trayUnderlay, {
-    [styles.trayUnderlayIsActive]: trayIsVisible,
+    [styles.trayUnderlayIsActive]: trayIsActive,
   })
   const trayContainerClass = classnames(styles.trayContainer, {
-    [styles.trayContainerIsActive]: trayIsVisible,
+    [styles.trayContainerIsActive]: trayIsActive,
   })
   const closeClass = classnames(styles.close, {
-    [styles.closeIsActive]: trayIsVisible,
+    [styles.closeIsActive]: trayIsActive,
   })
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
@@ -55,18 +57,16 @@ const Tray = (props) => {
       </div>
       <div
         className={trayUnderlayClass}
-        onClick={() => setTrayIsVisible(false)}
-        onKeyDown={() => setTrayIsVisible(false)}
+        onClick={() => dispatch(toggleTray(false))}
+        onKeyDown={() => dispatch(toggleTray(false))}
       ></div>
-      <button className={closeClass} onClick={() => setTrayIsVisible(false)}>
+      <button className={closeClass} onClick={() => dispatch(toggleTray(false))}>
         Close
       </button>
     </div>
   )
 }
 
-Tray.propTypes = {
-  setTrayIsVisible: PropTypes.func
-}
-
-export default Tray
+export default connect(state => ({
+  trayIsActive: isTrayActive(state),
+}),null)(Tray)

@@ -1,5 +1,6 @@
-export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
+export const TOGGLE_TRAY = 'TOGGLE_TRAY';
 
-export const toggleDarkMode = isDarkMode => ({
-  type: TOGGLE_DARKMODE, isDarkMode
-});
+export const toggleTray = isVisible => ({
+  type: TOGGLE_TRAY,
+  isVisible,
+})

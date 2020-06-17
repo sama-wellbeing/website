@@ -1,9 +1,13 @@
 import React from "react"
-import { wrapper } from './wrapper.module.scss'
+import PropTypes from "prop-types"
+import styles from './wrapper.module.scss'
 import classnames from "classnames"
 
-const Wrapper = ({ className, children }) => {
-  const wrapperClass = classnames(wrapper, className);
+const Wrapper = ({ className, children, width }) => {
+  const wrapperClass = classnames(styles.wrapper, className, {
+    [styles[width]]: width
+  });
+
   return (
     <div className={wrapperClass}>
       {children}
@@ -12,3 +16,11 @@ const Wrapper = ({ className, children }) => {
 }
 
 export default Wrapper
+
+Wrapper.defaultProps = {
+  width: 'medium'
+}
+
+Wrapper.propTypes = {
+  width: PropTypes.string
+}

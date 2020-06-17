@@ -1,15 +1,17 @@
 import React from 'react';
 import App from "../../components/app/app"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import PageHeader from '../../components/page-header/page-header';
 import { heroHeights } from '../../constants/theme';
 import FlexibleContent from '../../components/flexible-content/flexible-content';
+import Title from '../../components/title/title';
+import { buildAuthorSlug } from '../../utils/author';
 
 const PostTemplate = ({ data }) => {
   const content = data.post;
   const cornerstone = data.cornerstone;
-
   const theme = cornerstone.theme || null; 
+  const author = content.author;
 
   if (content.hero) {
     content.hero.height = heroHeights.MEDIUM
@@ -17,9 +19,20 @@ const PostTemplate = ({ data }) => {
 
   return (
     <App theme={theme}>
-      <PageHeader menuItems={cornerstone.categories} theme={theme} hero={content.hero} title={content.title} />
-
-      {content.content && <FlexibleContent content={content.content.contentRow} />}
+      <PageHeader
+        menuItems={cornerstone.categories}
+        theme={theme}
+        hero={content.hero}
+        title={content.title}
+      />
+      {author && (
+        <Title tag={"h3"}>
+          <Link to={buildAuthorSlug(author)}>{author.title}</Link>
+        </Title>
+      )}
+      {content.content && (
+        <FlexibleContent content={content.content.contentRow} />
+      )}
     </App>
   )
 }

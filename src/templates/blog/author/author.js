@@ -1,21 +1,27 @@
 import React from 'react';
-import App from "../../components/app/app"
+import classnames from "classnames"
+import App from "../../../components/app/app"
 import { graphql } from "gatsby"
-import PageHeader from '../../components/page-header/page-header';
-import { heroHeights } from '../../constants/theme';
-import FlexibleContent from '../../components/flexible-content/flexible-content';
+import Header from "../../../components/header/header"
+import { heroHeights } from '../../../constants/theme'
+import FlexibleContent from '../../../components/flexible-content/flexible-content'
+import styles from "./author.module.scss"
+import HeroImage from '../../../components/hero-image/hero-image';
 
 const AuthorTemplate = ({ data }) => {
   const content = data.author;
 
-  if (content.hero) {
-    content.hero.height = heroHeights.MEDIUM
-  }
+  const { hero } = content;
 
   return (
-    <App>
-      <PageHeader hero={content.hero} title={content.title} />
-      {content.content && <FlexibleContent content={content.content.contentRow} />}
+    <App useHeader={false}>
+      <div className={styles.headerBackground}>
+        <Header theme={"transparent"} />
+        <HeroImage image={hero.image} title={hero.title} subtitle={hero.subtitle} />
+      </div>
+      {content.content && (
+        <FlexibleContent content={content.content.contentRow} />
+      )}
     </App>
   )
 }

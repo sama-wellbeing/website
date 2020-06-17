@@ -56,11 +56,15 @@ const Tray = (props) => {
         />
       </div>
       <div
+        role="presentation"
         className={trayUnderlayClass}
         onClick={() => dispatch(toggleTray(false))}
         onKeyDown={() => dispatch(toggleTray(false))}
       ></div>
-      <button className={closeClass} onClick={() => dispatch(toggleTray(false))}>
+      <button
+        className={closeClass}
+        onClick={() => dispatch(toggleTray(false))}
+      >
         Close
       </button>
     </div>

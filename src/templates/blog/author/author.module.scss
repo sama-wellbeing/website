@@ -1,0 +1,25 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+@include gradientAnimation;
+
+.headerBackground {
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background: $themeGradient;
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease-in-out infinite;
+
+    @media (min-width: $screenMd) {
+      background-size: 600% 600%;
+    }
+  }
+}

@@ -25,7 +25,7 @@ const CenteredContent = ({content}) => {
   
   return (
     <div className={wrapperContainerClass}>
-      <Wrapper className={contentContainerClass}>
+      <Wrapper width={'thin'} className={contentContainerClass}>
         <Title className={titleClass} type={tag}>
           {title}
         </Title>

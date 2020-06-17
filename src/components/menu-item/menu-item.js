@@ -1,12 +1,14 @@
 import _ from "lodash"
+import { connect } from "react-redux"
 import { Link } from "gatsby"
 import React from "react"
 import PropTypes from "prop-types"
 import classnames from 'classnames'
 import styles from "./menu-item.module.scss"
 import Menu from "../menu/menu"
+import { toggleTray } from "../../state/ui/ui-action"
 
-const MenuItem = ({ title, slug, theme, menuItems, parent }) => {
+const MenuItem = ({ title, slug, theme, menuItems, parent, dispatch }) => {
   const className = classnames(styles.item, {
     [styles[theme]]: true,
   })
@@ -21,9 +23,17 @@ const MenuItem = ({ title, slug, theme, menuItems, parent }) => {
   return (
     <li className={className}>
       {isExternal ? (
-        <a href={freshSlug} title={title}>{title}</a>
-      ): (
-        <Link title={title} to={`/${freshSlug}/`}>{title}</Link>
+        <a href={freshSlug} title={title}>
+          {title}
+        </a>
+      ) : (
+        <Link
+          title={title}
+          onClick={() => dispatch(toggleTray(false))}
+          to={`/${freshSlug}/`}
+        >
+          {title}
+        </Link>
       )}
 
       {menuItems && <Menu menuItems={menuItems} />}
@@ -38,4 +48,5 @@ MenuItem.propTypes = {
   menuItems: PropTypes.object
 }
 
-export default MenuItem
+
+export default connect(null, null)(MenuItem)

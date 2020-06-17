@@ -30,6 +30,10 @@ $burgerBarPosition: -7px;
   }
 }
 
+.theme-transparent:before {
+  display: none;
+}
+
 .backgroundWrap {
   &:before {
     bottom: 0;

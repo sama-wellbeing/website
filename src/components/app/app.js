@@ -18,9 +18,9 @@ import Tray from "../tray.js/tray"
 import { isTrayActive } from "../../state/ui/ui-selectors"
 
 const App = (props) => {
-  const { children, headerSize, theme, seo, trayIsActive } = props
+  const { children, headerSize, theme, seo, trayIsActive, useHeader } = props
   let seoContianer;
-
+  
   if (_.isUndefined(seo)) {
     seoContianer = <SEO />
   } else {
@@ -39,7 +39,7 @@ const App = (props) => {
       {seoContianer}
       <div className={bodyClass}>
         <Tray />
-        <Header size={headerSize} theme={theme}/>
+        {useHeader && <Header size={headerSize} theme={theme} />}
         <main>{children}</main>
         <Footer theme={theme} />
       </div>
@@ -53,6 +53,9 @@ App.propTypes = {
   seo: PropTypes.object,
 }
 
+App.defaultProps = {
+  useHeader: true
+}
 
 export default connect(state => ({
   trayIsActive: isTrayActive(state),

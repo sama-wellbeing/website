@@ -1,9 +1,7 @@
 import React from 'react';
-import classnames from "classnames"
 import App from "../../../components/app/app"
 import { graphql } from "gatsby"
 import Header from "../../../components/header/header"
-import { heroHeights } from '../../../constants/theme'
 import FlexibleContent from '../../../components/flexible-content/flexible-content'
 import styles from "./author.module.scss"
 import HeroImage from '../../../components/hero-image/hero-image';

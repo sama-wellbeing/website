@@ -14,35 +14,33 @@ import "./app.scss"
 import styles from "./app.scss"
 import Footer from "../footer/footer"
 import SEO from '../seo';
-import Tray from "../tray.js/tray"
+import Tray from "../tray/tray"
 import { isTrayActive } from "../../state/ui/ui-selectors"
 
 const App = (props) => {
   const { children, headerSize, theme, seo, trayIsActive, useHeader } = props
   let seoContianer;
   
-  if (_.isUndefined(seo)) {
-    seoContianer = <SEO />
-  } else {
-    const title = seo.title ? seo.title : null;
-    const description = seo.metaDescription ? seo.metaDescription.content[0].content[0].value : null;
-
-    seoContianer = <SEO title={title} description={description} />
-  }
-
   const bodyClass = classnames({
     [styles.trayIsActive]: trayIsActive,
   })
 
+  if (_.isUndefined(seo)) {
+    seoContianer = <SEO bodyClass={bodyClass} />
+  } else {
+    const title = seo.title ? seo.title : null;
+    const description = seo.metaDescription ? seo.metaDescription.content[0].content[0].value : null;
+
+    seoContianer = <SEO bodyClass={bodyClass} title={title} description={description} />
+  }
+
   return (
     <>
       {seoContianer}
-      <div className={bodyClass}>
-        <Tray />
-        {useHeader && <Header size={headerSize} theme={theme} />}
-        <main>{children}</main>
-        <Footer theme={theme} />
-      </div>
+      <Tray />
+      {useHeader && <Header size={headerSize} theme={theme} />}
+      <main>{children}</main>
+      <Footer theme={theme} />
     </>
   )
 }

@@ -1,5 +1,4 @@
 import React from "react"
-import BackgroundImage from 'gatsby-background-image'
 import PropTypes from "prop-types"
 import styles from './hero-image.module.scss'
 // import classnames from "classnames"

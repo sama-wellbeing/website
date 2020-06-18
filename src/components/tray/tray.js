@@ -8,6 +8,7 @@ import styles from "./tray.module.scss"
 import { MenuKeys } from '../../constants/menus';
 import { toggleTray } from "../../state/ui/ui-action";
 import { isTrayActive } from "../../state/ui/ui-selectors"
+import Layout from '../layout/layout';
 
 const Tray = (props) => {
   const { trayIsActive, dispatch } = props;
@@ -47,7 +48,7 @@ const Tray = (props) => {
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
   return (
-    <div className={trayClass}>
+    <Layout className={trayClass}>
       <div className={trayContainerClass}>
         <Menu
           className={styles.menu}
@@ -67,7 +68,7 @@ const Tray = (props) => {
       >
         Close
       </button>
-    </div>
+    </Layout>
   )
 }
 

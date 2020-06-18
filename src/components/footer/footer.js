@@ -12,6 +12,7 @@ import Title from "../title/title"
 import Row from "../grid/row/row"
 import Col from '../grid/col/col';
 import { GridSize } from '../../constants/grid';
+import Layout from '../layout/layout';
 
 const buildCategoryMenus = (menuItems) => {
   const keys = [];
@@ -112,7 +113,7 @@ const Footer = ({ theme }) => {
   const gridSize = GridSize.SMALL;
 
   return (
-    <div className={footerClass}>
+    <Layout className={footerClass}>
       <Wrapper>
         <Row size={gridSize} className={styles.row}>
           <Col className={styles.col} size={gridSize}>
@@ -157,7 +158,7 @@ const Footer = ({ theme }) => {
           © {new Date().getFullYear()} {data.site.siteMetadata.title}
         </div>
       </Wrapper>
-    </div>
+    </Layout>
   )
 }
 

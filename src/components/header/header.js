@@ -12,6 +12,7 @@ import styles from "./header.module.scss"
 import { MenuKeys } from '../../constants/menus';
 import { isTrayActive } from "../../state/ui/ui-selectors"
 import { toggleTray } from "../../state/ui/ui-action"
+import Layout from '../layout/layout';
 
 const Header = (props) => {
   const {
@@ -59,7 +60,7 @@ const Header = (props) => {
   const menuItems = data.allContentfulMenu.nodes[0].menuItems;
 
   return (
-    <header className={headerClass}>
+    <Layout className={headerClass}>
       <Wrapper>
         <button
           onClick={() => dispatch(toggleTray(true))}
@@ -80,7 +81,7 @@ const Header = (props) => {
           <Brand />
         </div>
       </Wrapper>
-    </header>
+    </Layout>
   )
 }
 

@@ -49,4 +49,4 @@ MenuItem.propTypes = {
 }
 
 
-export default connect(null, null)(MenuItem)
+export default connect()(MenuItem)

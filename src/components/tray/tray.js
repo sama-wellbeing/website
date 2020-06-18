@@ -26,6 +26,14 @@ const Tray = (props) => {
                 slug
                 title
               }
+              ... on ContentfulLink {
+                title
+                slug
+              }
+              ... on ContentfulPostCategory {
+                slug
+                title
+              }
             }
           }
         }

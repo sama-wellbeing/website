@@ -26,9 +26,7 @@ const Header = (props) => {
   const data = useStaticQuery(
     graphql`
       query {
-        allContentfulMenu(
-          filter: { menuId: { eq: "primary-menu" } }
-        ) {
+        allContentfulMenu(filter: { menuId: { eq: "primary-menu" } }) {
           nodes {
             menuItems {
               ... on ContentfulPage {
@@ -39,12 +37,20 @@ const Header = (props) => {
                 slug
                 title
               }
+              ... on ContentfulLink {
+                title
+                slug
+              }
+              ... on ContentfulPostCategory {
+                slug
+                title
+              }
             }
           }
         }
       }
     `
-  );
+  )
 
   const headerClass = classnames(styles.header, styles.headerBackground, {
     [styles[`theme${themeClean}`]]: themeClean,

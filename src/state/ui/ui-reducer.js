@@ -1,10 +1,11 @@
 import { TOGGLE_TRAY, SET_THEME } from "./ui-action"
+import { themeMap } from '../../constants/theme';
 import { createReducer } from "@reduxjs/toolkit"
 
 export const initialUiState = {
   hasHero: undefined,
   tray: false,
-  theme: 'default'
+  theme: themeMap.DEFAULT
 };
 
 const toggleTray = (state = initialUiState, action) => {

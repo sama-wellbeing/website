@@ -17,7 +17,7 @@ const imageIsRight = (key) => {
 }
 
 const PostsLists = (props) => {
-  const { posts } = props
+  const { posts, useActiveTheme } = props
   
   return (
     <div className={styles.list}>
@@ -33,6 +33,7 @@ const PostsLists = (props) => {
               slug={buildPostSlug(content)}
               image={content.teaserImage}
               category={getCornerStoneContent(content)}
+              useActiveTheme={useActiveTheme}
             />
           )
         } else {
@@ -44,6 +45,7 @@ const PostsLists = (props) => {
               slug={buildPostSlug(content)}
               image={content.teaserImage}
               category={getCornerStoneContent(content)}
+              useActiveTheme={useActiveTheme}
               imageIsRight={imageIsRight(key)}
             />
           )
@@ -54,7 +56,12 @@ const PostsLists = (props) => {
 };
 
 PostsLists.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  useActiveTheme: PropTypes.bool
+};
+
+PostsLists.defaultProps = {
+  useActiveTheme: true
 };
 
 export default PostsLists;

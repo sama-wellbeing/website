@@ -1,3 +1,4 @@
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React from "react"
 import classnames from "classnames"
@@ -9,10 +10,22 @@ import { Link } from "gatsby";
 import Col from '../grid/col/col';
 import Row from '../grid/row/row';
 import { GridSize } from '../../constants/grid';
+import { getActiveTheme } from '../../state/ui/ui-selectors';
 
 const PostsListItem = (props) => {
-  const { title, content, slug, image, category, imageIsRight} = props;
-  const theme = category.theme.replace(/\s/g, '');
+  const {
+    title,
+    content,
+    slug,
+    image,
+    category,
+    imageIsRight,
+    activeTheme,
+    useActiveTheme,
+  } = props
+  const theme = useActiveTheme
+    ? activeTheme.replace(/\s/g, "")
+    : category.theme.theme
 
   const thumbanilContainerClass = classnames(styles.col, styles.thumbnailContainer, {
     [styles.thumbnailContainerIsRight]: imageIsRight
@@ -74,6 +87,12 @@ PostsListItem.propTypes = {
   title: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-};
+  useActiveTheme: PropTypes.bool
+}
 
-export default PostsListItem;
+export default connect(
+  state => ({
+    activeTheme: getActiveTheme(state),
+  }),
+  null
+)(PostsListItem)

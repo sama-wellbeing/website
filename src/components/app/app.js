@@ -13,14 +13,15 @@ import Header from "../header/header"
 import "./app.scss"
 import styles from "./app.scss"
 import Footer from "../footer/footer"
-import SEO from '../seo';
+import SEO from '../seo'
 import Tray from "../tray/tray"
-import { isTrayActive } from "../../state/ui/ui-selectors"
+import Theme from "../theme/theme"
+import { isTrayActive } from '../../state/ui/ui-selectors'
 
 const App = (props) => {
-  const { children, headerSize, theme, seo, trayIsActive, useHeader } = props
+  const { children, headerSize, seo, trayIsActive, useHeader, theme } = props
   let seoContianer;
-  
+
   const bodyClass = classnames({
     [styles.trayIsActive]: trayIsActive,
   })
@@ -35,13 +36,13 @@ const App = (props) => {
   }
 
   return (
-    <>
+    <Theme theme={theme}>
       {seoContianer}
       <Tray />
-      {useHeader && <Header size={headerSize} theme={theme} />}
+      {useHeader && <Header size={headerSize} />}
       <main>{children}</main>
-      <Footer theme={theme} />
-    </>
+      <Footer />
+    </Theme>
   )
 }
 
@@ -49,6 +50,7 @@ App.propTypes = {
   children: PropTypes.node.isRequired,
   headerBackgroundFill: PropTypes.string,
   seo: PropTypes.object,
+  theme: PropTypes.string
 }
 
 App.defaultProps = {
@@ -56,5 +58,5 @@ App.defaultProps = {
 }
 
 export default connect(state => ({
-  trayIsActive: isTrayActive(state),
-}),null)(App)
+  trayIsActive: isTrayActive(state)
+}), null)(App)

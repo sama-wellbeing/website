@@ -10,18 +10,18 @@ import Wrapper from "../wrapper/wrapper"
 
 import styles from "./header.module.scss"
 import { MenuKeys } from '../../constants/menus';
-import { isTrayActive } from "../../state/ui/ui-selectors"
+import { isTrayActive, getActiveTheme } from '../../state/ui/ui-selectors';
 import { toggleTray } from "../../state/ui/ui-action"
 import Layout from '../layout/layout';
 
 const Header = (props) => {
   const {
     size,
-    theme,
+    activeTheme,
     trayIsActive,
     dispatch
   } = props
-  const themeClean = theme ? theme.replace(/\s/g, "") : theme;
+  const themeClean = activeTheme.replace(/\s/g, "");
 
   const data = useStaticQuery(
     graphql`
@@ -99,9 +99,9 @@ Header.propTypes = {
 
 Header.defaultProps = {
   size: 'medium',
-  theme: 'Default'
 }
 
 export default connect(state => ({
-  trayIsActive: isTrayActive(state)
+  trayIsActive: isTrayActive(state),
+  activeTheme: getActiveTheme(state)
 }), null)(Header);

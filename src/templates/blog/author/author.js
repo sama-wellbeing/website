@@ -5,6 +5,7 @@ import Header from "../../../components/header/header"
 import FlexibleContent from '../../../components/flexible-content/flexible-content'
 import styles from "./author.module.scss"
 import HeroImage from '../../../components/hero-image/hero-image';
+import { headerThemes } from '../../../constants/theme';
 
 const AuthorTemplate = ({ data }) => {
   const content = data.author;
@@ -14,7 +15,7 @@ const AuthorTemplate = ({ data }) => {
   return (
     <App useHeader={false}>
       <div className={styles.headerBackground}>
-        <Header theme={"transparent"} />
+        <Header theme={headerThemes.TRANSPARENT} />
         <HeroImage image={hero.image} title={hero.title} subtitle={hero.subtitle} />
       </div>
       {content.content && (

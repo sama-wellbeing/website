@@ -1,18 +1,19 @@
 import _ from "lodash"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import PropTypes from "prop-types"
+import { connect } from "react-redux"
 import React from "react"
 import classnames from "classnames"
 
 import Wrapper from "../wrapper/wrapper"
 import styles from "./footer.module.scss"
-import { MenuKeys } from '../../constants/menus';
+import { MenuKeys, MenuThemes } from '../../constants/menus';
 import Menu from "../menu/menu"
 import Title from "../title/title"
 import Row from "../grid/row/row"
 import Col from '../grid/col/col';
 import { GridSize } from '../../constants/grid';
 import Layout from '../layout/layout';
+import { getActiveTheme } from '../../state/ui/ui-selectors';
 
 const buildCategoryMenus = (menuItems) => {
   const keys = [];
@@ -46,7 +47,7 @@ const buildCategoryMenus = (menuItems) => {
   return menu;
 }
 
-const Footer = ({ theme }) => {
+const Footer = ({ activeTheme }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -103,14 +104,14 @@ const Footer = ({ theme }) => {
       data.cornerstoneMenu.nodes[0].menuItems
     ),
     [MenuKeys.PAGE_MENU]: data.pageMenu.nodes[0].menuItems,
-    [MenuKeys.BOTANYBLEND]: data.botanyblendMenu.nodes[0].menuItems
+    [MenuKeys.BOTANYBLEND]: data.botanyblendMenu.nodes[0].menuItems,
   }
-  const themeClean = theme ? theme.replace(/\s/g, "") : theme;
+  const themeClean = activeTheme ? activeTheme.replace(/\s/g, "") : activeTheme
   const footerClass = classnames(styles.footer, {
-    [styles[`theme${themeClean}`]]: theme,
+    [styles[`theme${themeClean}`]]: activeTheme,
   })
 
-  const gridSize = GridSize.SMALL;
+  const gridSize = GridSize.SMALL
 
   return (
     <Layout className={footerClass}>
@@ -122,7 +123,7 @@ const Footer = ({ theme }) => {
             </Title>
             <Menu
               className={styles.menu}
-              theme={"footer"}
+              theme={MenuThemes.FOOTER}
               menuItems={menus[MenuKeys.PAGE_MENU]}
             />
           </Col>
@@ -133,7 +134,7 @@ const Footer = ({ theme }) => {
               </Title>
               <Menu
                 className={styles.menu}
-                theme={"footer"}
+                theme={MenuThemes.FOOTER}
                 menuItems={item.menuItems}
               />
             </Col>
@@ -150,7 +151,7 @@ const Footer = ({ theme }) => {
           </Title>
           <Menu
             className={styles.menu}
-            theme={"footer"}
+            theme={MenuThemes.FOOTER}
             menuItems={menus[MenuKeys.BOTANYBLEND]}
           />
         </div>
@@ -162,13 +163,9 @@ const Footer = ({ theme }) => {
   )
 }
 
-Footer.propTypes = {
-  size: PropTypes.string,
-  theme: PropTypes.string
-}
-
-Footer.defaultProps = {
-  theme: "Default",
-}
-
-export default Footer
+export default connect(
+  state => ({
+    activeTheme: getActiveTheme(state),
+  }),
+  null
+)(Footer);

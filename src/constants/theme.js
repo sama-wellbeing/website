@@ -13,6 +13,7 @@ export const themeMap = {
   GREEN: 'Green',
   RED: 'Red',
   LILAC: 'Lilac',
+  DEFAULT: 'Default',
 }
 
 export const headerHeights = {
@@ -20,6 +21,11 @@ export const headerHeights = {
   MEDIUM: 'medium',
   SMALL: 'small'
 }
+
+export const headerThemes = {
+  TRANSPARENT: "transparent",
+}
+
 
 export const heroHeights = {
   LARGE: "large",

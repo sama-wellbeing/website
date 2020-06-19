@@ -9,19 +9,16 @@ import PostsLists from '../../components/posts-list/posts-list';
 const PostsTemplate = ({ data }) => {
   const content = data.content;
   const posts = data.posts.edges;
-  const theme = content.theme ? content.theme : null;
-  
+
   return (
-    <App theme={theme}>
+    <App theme={content.theme ? content.theme.theme : null}>
       <PageHeader
         menuItems={content.categories}
-        theme={theme}
         title={content.title}
         hero={content.hero}
       />
       <Wrapper>
         <ThumbnailNavigation thumbnails={content.categories} />
-
         <PostsLists posts={posts} />
       </Wrapper>
     </App>
@@ -59,7 +56,9 @@ export const pageQuery = graphql`
             slug
             contentfulparent {
               title
-              theme
+              theme {
+                theme
+              }
               slug
             }
           }
@@ -69,7 +68,9 @@ export const pageQuery = graphql`
     content: contentfulPosts(id: { eq: $id }) {
       title
       slug
-      theme
+      theme {
+        theme
+      }
       hero {
         subtitle
         title

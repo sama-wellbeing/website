@@ -7,3 +7,7 @@ export const MenuKeys = {
   BOTANYBLEND: "botanyblend",
   MOBILE: "mobile"
 }
+
+export const MenuThemes = {
+  FOOTER: "footer"
+}

@@ -1,3 +1,4 @@
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React from "react"
 import classnames from 'classnames'
@@ -5,9 +6,10 @@ import styles from "./secondary-navigation.module.scss"
 import Menu from "../menu/menu"
 import Wrapper from "../wrapper/wrapper"
 import { MenuKeys } from '../../constants/menus';
+import { getActiveTheme } from "../../state/ui/ui-selectors"
 
-const SecondaryNavigation = ({ menuItems, className, theme }) => {
-  const themeClean = theme ? theme.replace(/\s/g, "") : theme
+const SecondaryNavigation = ({ menuItems, className, activeTheme }) => {
+  const themeClean = activeTheme.replace(/\s/g, "");
   const navigationClass = classnames(className, styles.navigation, {
     [styles[`theme${themeClean}`]]: themeClean,
   })
@@ -24,7 +26,11 @@ const SecondaryNavigation = ({ menuItems, className, theme }) => {
 SecondaryNavigation.propTypes = {
   menuItems: PropTypes.array,
   className: PropTypes.string,
-  theme: PropTypes.string
 }
 
-export default SecondaryNavigation
+export default connect(
+  state => ({
+    activeTheme: getActiveTheme(state),
+  }),
+  null
+)(SecondaryNavigation)

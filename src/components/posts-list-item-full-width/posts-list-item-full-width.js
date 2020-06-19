@@ -1,3 +1,4 @@
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React from "react"
 import BackgroundImage from 'gatsby-background-image'
@@ -6,10 +7,11 @@ import styles from "./posts-list-item-full-width.module.scss"
 import Button from "../button/button";
 import Title from '../title/title';
 import { Link } from "gatsby";
+import { getActiveTheme } from '../../state/ui/ui-selectors';
 
 const PostsListItemFullWidth = (props) => {
-  const { title, slug, image, category } = props;
-  const theme = category.theme.replace(/\s/g, '');
+  const { title, slug, image, category, activeTheme, useActiveTheme } = props
+  const theme = useActiveTheme ? activeTheme.replace(/\s/g, "") : category.theme.theme;
 
   const rowClass = classnames(styles.row, {
     //   [styles.thumbnailIsOdd]: !isEven,
@@ -46,6 +48,12 @@ PostsListItemFullWidth.propTypes = {
   title: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-};
+  useActiveTheme: PropTypes.bool
+}
 
-export default PostsListItemFullWidth
+export default connect(
+  state => ({
+    activeTheme: getActiveTheme(state),
+  }),
+  null
+)(PostsListItemFullWidth)

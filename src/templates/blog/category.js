@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import App from "../../components/app/app"
 import { graphql } from "gatsby"
-import Wrapper from '../../components/wrapper/wrapper';
-import PageHeader from '../../components/page-header/page-header';
-import PostsLists from '../../components/posts-list/posts-list';
+import Wrapper from '../../components/wrapper/wrapper'
+import PageHeader from '../../components/page-header/page-header'
+import PostsLists from '../../components/posts-list/posts-list'
 
 const CategoryTemplate = ({ data }) => {
   const posts = data.posts.edges;
@@ -11,11 +11,10 @@ const CategoryTemplate = ({ data }) => {
   const categories = data.categories;
   const menuItems = categories.categories;
 
-  return ( 
-    <App theme={categories.theme}>
+  return (
+    <App theme={categories.theme ? categories.theme.theme : null}>
       <PageHeader
         menuItems={menuItems}
-        theme={categories.theme}
         title={content.title}
         hero={content.hero}
       />
@@ -49,7 +48,9 @@ export const pageQuery = graphql`
               slug
               contentfulparent {
                 title
-                theme
+                theme {
+                  theme
+                }
                 slug
               }
             }
@@ -62,14 +63,18 @@ export const pageQuery = graphql`
       categories: contentfulPosts(id: {eq: $parentId}) {
         title
         slug
-        theme
+        theme {
+          theme
+        }
         categories {
           slug
           title
           id
           contentfulparent {
             title
-            theme
+            theme {
+              theme
+            }
             slug
           }
         }

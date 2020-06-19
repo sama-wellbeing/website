@@ -69,7 +69,9 @@ const IndexPage = () => {
                   slug
                   contentfulparent {
                     title
-                    theme
+                    theme {
+                      theme
+                    }
                     slug
                   }
                 }
@@ -93,7 +95,7 @@ const IndexPage = () => {
 
       <Wrapper>
         <ThumbnailNavigation thumbnails={data.contentCategories} />
-        <PostsLists posts={data.posts} />
+        <PostsLists posts={data.posts} useActiveTheme={false} />
       </Wrapper>
     </App>
   )

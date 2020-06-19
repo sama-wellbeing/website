@@ -10,18 +10,16 @@ import { buildAuthorSlug } from '../../utils/author';
 const PostTemplate = ({ data }) => {
   const content = data.post;
   const cornerstone = data.cornerstone;
-  const theme = cornerstone.theme || null; 
   const author = content.author;
 
   if (content.hero) {
     content.hero.height = heroHeights.MEDIUM
   }
-
+  
   return (
-    <App theme={theme}>
+    <App theme={cornerstone.theme.theme}>
       <PageHeader
         menuItems={cornerstone.categories}
-        theme={theme}
         hero={content.hero}
         title={content.title}
       />
@@ -105,7 +103,9 @@ export const pageQuery = graphql`
     cornerstone: contentfulPosts(id: {eq: $cornerstoneId}) {
       title
       slug
-      theme
+      theme {
+        theme
+      }
       categories {
         slug
         title

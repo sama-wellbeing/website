@@ -7,12 +7,12 @@ import { colours, heroHeights } from '../../constants/theme';
 import Hero from '../hero/hero';
 import Title from "../title/title"
 
-const PageHeader = ({ menuItems, className, theme, hero, title }) => {
-  const pageHeaderClass = classnames(className, styles.pageHeader);
+const PageHeader = ({ menuItems, className, hero, title }) => {
+  const pageHeaderClass = classnames(className, styles.pageHeader)
 
   return (
     <div className={pageHeaderClass}>
-      {menuItems && <SecondaryNavigation menuItems={menuItems} theme={theme} />}  
+      {menuItems && <SecondaryNavigation menuItems={menuItems} />}
       {hero && (
         <Hero
           className={styles.hero}
@@ -36,8 +36,7 @@ const PageHeader = ({ menuItems, className, theme, hero, title }) => {
 PageHeader.propTypes = {
   menuItems: PropTypes.array,
   className: PropTypes.string,
-  theme: PropTypes.string,
   hero: PropTypes.object
 }
 
-export default PageHeader
+export default PageHeader;

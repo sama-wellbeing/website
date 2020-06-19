@@ -1,13 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import { themeMap } from '../../constants/theme'
 import { setTheme } from "../../state/ui/ui-action"
 
 const Theme = ({ theme, dispatch, children }) => {
-
-  useEffect(() => {
-    dispatch(setTheme(theme ? theme : themeMap.DEFAULT));
-  });
+  dispatch(setTheme(theme ? theme : themeMap.DEFAULT));
 
   return (
     <>

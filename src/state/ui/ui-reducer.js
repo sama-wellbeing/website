@@ -3,7 +3,6 @@ import { themeMap } from '../../constants/theme';
 import { createReducer } from "@reduxjs/toolkit"
 
 export const initialUiState = {
-  hasHero: undefined,
   tray: false,
   theme: themeMap.DEFAULT
 };

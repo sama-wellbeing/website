@@ -11,7 +11,12 @@ export const mockInitialState = {
 
 const initialState = _.cloneDeep(mockInitialState);
 
-const createStore = () => reduxCreateStore(rootReducer, initialState);
+const createStore = () =>
+  reduxCreateStore(
+    rootReducer,
+    initialState,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 
 export default ({ element }) => (
   <Provider store={createStore()}>{element}</Provider>
